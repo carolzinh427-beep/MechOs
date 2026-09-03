@@ -47,10 +47,10 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="font-bold text-white uppercase text-[11px] tracking-wider">Empresa</h4>
             <ul className="space-y-2">
+              <li><a href="https://mech.zyphorlabscorporation.online/" target="_blank" rel="noopener noreferrer" className="text-[#00E676] font-bold hover:underline">Acessar Sistema</a></li>
               <li><a href="#como-funciona" className="hover:text-white transition-colors">Como Funciona</a></li>
               <li><a href="#planos" className="hover:text-white transition-colors">Planos & Preços</a></li>
               <li><a href="#faq" className="hover:text-white transition-colors">Perguntas Frequentes</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contato</a></li>
             </ul>
           </div>
 

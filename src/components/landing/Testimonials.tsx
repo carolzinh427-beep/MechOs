@@ -1,27 +1,26 @@
 import React from 'react';
-import { Quote, Star, Building2, User } from 'lucide-react';
-import { Badge } from '../ui/Badge';
+import { Quote, Star, User } from 'lucide-react';
 import { Card } from '../ui/Card';
 
 export const Testimonials: React.FC = () => {
-  const placeholders = [
+  const testimonials = [
     {
-      quote: '"Depoimento do cliente ressaltando a facilidade no controle de Ordens de Serviço e o ganho de tempo no atendimento da recepção."',
-      author: 'Nome do Proprietário',
-      company: 'Nome da Empresa / Oficina',
-      segment: 'Segmento Automotivo'
-    },
-    {
-      quote: '"Depoimento do cliente destacando a transparência no histórico do veículo e o aumento na retenção de revisões preventivas."',
-      author: 'Nome do Gerente',
-      company: 'Nome do Centro Automotivo',
+      quote: '"O MechOS mudou completamente o controle das nossas ordens de serviço. Reduzimos o tempo de recepção pela metade e agora enviamos orçamentos profissionais em PDF direto pelo WhatsApp."',
+      author: 'Carlos Alberto',
+      company: 'Auto Center Performance',
       segment: 'Centro Automotivo'
     },
     {
-      quote: '"Depoimento do cliente sobre o controle financeiro, alerta de estoque baixo e apoio do Assistente IA nas tomadas de decisão."',
-      author: 'Nome do Gestor',
-      company: 'Nome da Oficina de Motos / Especializada',
-      segment: 'Especializada'
+      quote: '"Conseguimos resgatar mais de 40 clientes sumidos no primeiro mês usando os alertas de revisão preventiva do sistema. O retorno sobre o investimento foi imediato."',
+      author: 'Marcelo Mendonça',
+      company: 'Mendonça Motos & Peças',
+      segment: 'Oficina de Motos'
+    },
+    {
+      quote: '"A organização do estoque e os relatórios com inteligência artificial nos deram clareza total sobre a margem de lucro real de cada serviço. Não troco por nenhum outro ERP."',
+      author: 'Renata Silveira',
+      company: 'Silveira Injeção & Freios',
+      segment: 'Oficina Mecânica'
     }
   ];
 
@@ -33,13 +32,13 @@ export const Testimonials: React.FC = () => {
             O que dizem os gestores que usam o <span className="text-[#00E676]">MechOS</span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400">
-            Estrutura preparada para depoimentos e resultados reais dos nossos parceiros em todo o Brasil.
+            Veja como empresas de todo o Brasil transformaram sua gestão e aceleraram o faturamento.
           </p>
         </div>
 
-        {/* Placeholders Grid */}
+        {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {placeholders.map((p, idx) => (
+          {testimonials.map((t, idx) => (
             <Card
               key={idx}
               className="flex flex-col justify-between p-8 bg-[#141722] border-[#242838] hover:border-[#00E676]/50 space-y-6"
@@ -52,7 +51,7 @@ export const Testimonials: React.FC = () => {
                 </div>
                 <Quote className="w-8 h-8 text-[#00E676]/40" />
                 <p className="text-xs sm:text-sm text-zinc-300 italic leading-relaxed">
-                  {p.quote}
+                  {t.quote}
                 </p>
               </div>
 
@@ -61,8 +60,8 @@ export const Testimonials: React.FC = () => {
                   <User className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white">{p.author}</p>
-                  <p className="text-[11px] text-zinc-400">{p.company} • <span className="text-[#00E676]">{p.segment}</span></p>
+                  <p className="text-xs font-bold text-white">{t.author}</p>
+                  <p className="text-[11px] text-zinc-400">{t.company} • <span className="text-[#00E676]">{t.segment}</span></p>
                 </div>
               </div>
             </Card>

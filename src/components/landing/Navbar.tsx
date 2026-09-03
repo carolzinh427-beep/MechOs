@@ -46,9 +46,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrial }) => {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm" onClick={onOpenTrial}>
-            Entrar
-          </Button>
+          <a
+            href="https://mech.zyphorlabscorporation.online/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="ghost" size="sm">
+              Entrar
+            </Button>
+          </a>
           <Button
             variant="electric"
             size="sm"
@@ -86,9 +92,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrial }) => {
           </nav>
 
           <div className="pt-2 flex flex-col gap-2">
-            <Button variant="outline" size="md" className="w-full" onClick={() => { setMobileMenuOpen(false); onOpenTrial(); }}>
-              Entrar
-            </Button>
+            <a
+              href="https://mech.zyphorlabscorporation.online/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <Button variant="outline" size="md" className="w-full">
+                Entrar no Sistema
+              </Button>
+            </a>
             <Button variant="electric" size="md" className="w-full" onClick={() => { setMobileMenuOpen(false); onOpenTrial(); }}>
               Começar agora
             </Button>
