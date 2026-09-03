@@ -37,11 +37,11 @@ export function App() {
         <ProblemSection />
         <SolutionBento />
         <AISection onOpenTrial={() => handleOpenTrial('Profissional')} />
-        <DashboardSection onOpenTrial={() => handleOpenTrial('Profissional')} />
+        <DashboardSection />
         <VehicleHistory onOpenTrial={() => handleOpenTrial('Profissional')} />
-        <HowItWorks />
+        <HowItWorks onOpenTrial={() => handleOpenTrial('Profissional')} />
         <PricingSection onOpenTrial={handleOpenTrial} />
-        <Comparison onOpenTrial={() => handleOpenTrial('Profissional')} />
+        <Comparison />
         <Testimonials />
         <FAQSection />
         <FinalCTA onOpenTrial={() => handleOpenTrial('Profissional')} />
