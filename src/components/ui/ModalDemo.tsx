@@ -37,7 +37,7 @@ export const ModalDemo: React.FC<ModalDemoProps> = ({ isOpen, onClose, selectedP
           <div className="space-y-5">
             <div>
               <Badge variant="electric" icon={<Sparkles className="w-3.5 h-3.5" />}>
-                Teste Grátis por 14 Dias
+                Teste Grátis por 3 Dias
               </Badge>
               <h3 className="text-xl md:text-2xl font-black text-white mt-2 tracking-tight">
                 Leve a gestão da sua empresa para o próximo nível

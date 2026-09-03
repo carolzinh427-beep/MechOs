@@ -41,7 +41,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
       ],
       popular: true,
       badgeText: 'MAIS ESCOLHIDO',
-      ctaText: 'Testar 14 Dias Grátis'
+      ctaText: 'Testar 3 Dias Grátis'
     },
     {
       name: 'Premium',
@@ -70,7 +70,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
             Comece com o plano certo para <span className="text-gradient-electric">sua empresa.</span>
           </h2>
           <p className="text-xs sm:text-base text-zinc-400">
-            Sem fidelidade ou taxa de adesão. Teste por 14 dias sem informar cartão.
+            Sem fidelidade ou taxa de adesão. Teste por 3 dias sem informar cartão.
           </p>
         </div>
 

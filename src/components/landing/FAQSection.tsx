@@ -14,8 +14,8 @@ export const FAQSection: React.FC = () => {
       a: 'Não. O MechOS é 100% em nuvem. Você pode acessar pelo computador, tablet ou celular com acesso à internet.'
     },
     {
-      q: 'Como funciona o teste grátis de 14 dias?',
-      a: 'Você se cadastra em menos de 1 minuto sem precisar informar cartão de crédito. Durante 14 dias você tem acesso total para testar com sua equipe.'
+      q: 'Como funciona o teste grátis de 3 dias?',
+      a: 'Você se cadastra em menos de 1 minuto sem precisar informar cartão de crédito. Durante 3 dias você tem acesso total para testar com sua equipe.'
     },
     {
       q: 'É fácil emitir Ordens de Serviço (OS)?',
