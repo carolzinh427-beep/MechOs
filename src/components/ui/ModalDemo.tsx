@@ -9,9 +9,7 @@ interface ModalDemoProps {
   selectedPlan?: string;
 }
 
-// INSIRA O SEU NÚMERO DE WHATSAPP AQUI (Com DDD e 55 no início)
-// Exemplo: '5511999999999'
-const TARGET_WHATSAPP_NUMBER = '5511999999999';
+const TARGET_WHATSAPP_NUMBER = '5561985890417';
 
 export const ModalDemo: React.FC<ModalDemoProps> = ({ isOpen, onClose, selectedPlan = 'Profissional' }) => {
   const [submitted, setSubmitted] = useState(false);
