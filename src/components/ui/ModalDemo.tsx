@@ -9,6 +9,10 @@ interface ModalDemoProps {
   selectedPlan?: string;
 }
 
+// INSIRA O SEU NÚMERO DE WHATSAPP AQUI (Com DDD e 55 no início)
+// Exemplo: '5511999999999'
+const TARGET_WHATSAPP_NUMBER = '5511999999999';
+
 export const ModalDemo: React.FC<ModalDemoProps> = ({ isOpen, onClose, selectedPlan = 'Profissional' }) => {
   const [submitted, setSubmitted] = useState(false);
   const [name, setName] = useState('');
@@ -21,6 +25,21 @@ export const ModalDemo: React.FC<ModalDemoProps> = ({ isOpen, onClose, selectedP
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    // Formata mensagem para o WhatsApp do proprietário
+    const message = encodeURIComponent(
+      `🚗 *Nova Solicitação de Teste Grátis (MechOS)*\n\n` +
+      `*Nome:* ${name}\n` +
+      `*Empresa:* ${company}\n` +
+      `*WhatsApp:* ${phone}\n` +
+      `*E-mail:* ${email}\n` +
+      `*Plano Escolhido:* ${selectedPlan}\n\n` +
+      `Gostaria de ativar meus 3 dias grátis de acesso!`
+    );
+
+    // Abre o WhatsApp com a mensagem pronta
+    const waUrl = `https://wa.me/${TARGET_WHATSAPP_NUMBER}?text=${message}`;
+    window.open(waUrl, '_blank');
   };
 
   return (
