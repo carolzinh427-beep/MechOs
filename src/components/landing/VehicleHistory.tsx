@@ -38,7 +38,7 @@ export const VehicleHistory: React.FC<VehicleHistoryProps> = ({ onOpenTrial }) =
           {/* Left Text Info */}
           <div className="lg:col-span-5 space-y-4 sm:space-y-6">
             <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              Cada veículo tem uma história. <span className="text-[#00E676]">Sua empresa também precisa conhecê-la.</span>
+              Cada veículo tem uma história <span className="text-[#00E676]">Sua empresa também precisa conhecê-la</span>
             </h2>
 
             <p className="text-xs sm:text-base text-zinc-400 leading-relaxed">

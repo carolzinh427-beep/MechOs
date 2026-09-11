@@ -18,7 +18,7 @@ export const SolutionBento: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-16">
           <SplitText
             tag="h2"
-            text="Tudo o que sua empresa precisa. Em um só lugar."
+            text="Tudo o que sua empresa precisa em um só lugar"
             className="text-2xl sm:text-5xl font-black text-white tracking-tight"
             delay={30}
             duration={0.7}

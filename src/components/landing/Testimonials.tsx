@@ -61,7 +61,7 @@ export const Testimonials: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-white">{t.author}</p>
-                  <p className="text-[10px] text-zinc-400">{t.company} • <span className="text-[#00E676]">{t.segment}</span></p>
+                  <p className="text-[10px] text-zinc-400">{t.company} <span className="text-[#00E676]">{t.segment}</span></p>
                 </div>
               </div>
             </Card>

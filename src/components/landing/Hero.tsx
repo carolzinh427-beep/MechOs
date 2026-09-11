@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
             <div>
               <SplitText
                 tag="h1"
-                text="Tenha o controle completo da sua operação automotiva."
+                text="Tenha o controle completo da sua operação automotiva"
                 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]"
                 delay={35}
                 duration={0.8}

@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
           {/* React Bits CircularText animation */}
           <div className="shrink-0 my-2 md:my-0 scale-90 sm:scale-100">
             <CircularText
-              text="MECHOS • GESTÃO AUTOMOTIVA • "
+              text="MECHOS GESTÃO AUTOMOTIVA "
               spinDuration={16}
               onHover="speedUp"
               className="text-[#00E676]"
@@ -50,15 +50,12 @@ export const Footer: React.FC = () => {
             >
               Acessar Sistema
             </a>
-            <span className="text-zinc-700">•</span>
             <a href="#recursos" className="hover:text-white transition-colors">
               Recursos
             </a>
-            <span className="text-zinc-700">•</span>
             <a href="#planos" className="hover:text-white transition-colors">
               Planos
             </a>
-            <span className="text-zinc-700">•</span>
             <a href="#faq" className="hover:text-white transition-colors">
               FAQ
             </a>

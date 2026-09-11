@@ -70,7 +70,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-16">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
-            Comece com o plano certo para <span className="text-gradient-electric">sua empresa.</span>
+            Comece com o plano certo para <span className="text-gradient-electric">sua empresa</span>
           </h2>
           <p className="text-xs sm:text-base text-zinc-400 font-medium">
             Todos os planos possuem <strong className="text-[#00E676]">3 dias de teste grátis</strong> sem necessidade de informar cartão de crédito.

@@ -34,7 +34,7 @@ export const AISection: React.FC<AISectionProps> = ({ onOpenTrial }) => {
           {/* Left Text Column */}
           <div className="lg:col-span-5 space-y-4 sm:space-y-6">
             <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              Sua empresa ganhou um <span className="text-[#00E676]">novo assistente.</span>
+              Sua empresa ganhou um <span className="text-[#00E676]">novo assistente</span>
             </h2>
 
             <p className="text-xs sm:text-base text-zinc-400 leading-relaxed">

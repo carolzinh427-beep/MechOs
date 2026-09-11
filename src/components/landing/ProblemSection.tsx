@@ -78,7 +78,7 @@ export const ProblemSection: React.FC = () => {
             <ArrowDown className="w-4 h-4 sm:w-6 sm:h-6" />
           </div>
           <p className="text-lg sm:text-3xl font-black text-[#00E676] tracking-tight">
-            Existe uma forma mais simples.
+            Existe uma forma mais simples
           </p>
         </div>
       </div>
