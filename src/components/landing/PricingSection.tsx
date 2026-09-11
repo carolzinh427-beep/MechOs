@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Check, ArrowRight, Wrench, Zap, Crown, Sparkles, MessageCircle } from 'lucide-react';
 import { Button } from '../ui/Button';
 import Dock, { DockItemData } from '../ui/Dock';
+import SpotlightCard from '../ui/SpotlightCard';
 
 interface PricingSectionProps {
   onOpenTrial: () => void;
@@ -136,65 +137,66 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
           className="flex overflow-x-auto snap-x snap-mandatory gap-3.5 sm:gap-6 pb-6 px-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 items-stretch [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {plans.map((p, idx) => (
-            <div
-              key={idx}
-              ref={cardRefs[idx]}
-              className={`w-[85vw] max-w-[310px] sm:w-[340px] lg:w-auto shrink-0 snap-center relative rounded-2xl sm:rounded-3xl p-4 sm:p-7 flex flex-col justify-between transition-all duration-300 ${
-                p.popular
-                  ? 'bg-[#141722] border-2 border-[#00E676] glow-electric lg:-translate-y-2'
-                  : 'bg-[#0F111A] border border-[#242838] hover:border-[#00E676]/40'
-              }`}
-            >
-              {p.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#00E676] text-zinc-950 font-black text-[9px] sm:text-[10px] tracking-wider uppercase shadow-md">
-                  {p.badgeText}
-                </div>
-              )}
-
-              <div className="space-y-3.5">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <h3 className="text-base sm:text-2xl font-black text-white">{p.name}</h3>
-                    <p className="text-[11px] sm:text-xs text-zinc-400 mt-0.5 leading-relaxed">{p.description}</p>
+            <div key={idx} ref={cardRefs[idx]} className="shrink-0 snap-center w-[85vw] max-w-[310px] sm:w-[340px] lg:w-auto flex">
+              <SpotlightCard
+                spotlightColor={p.popular ? 'rgba(0, 230, 118, 0.25)' : 'rgba(0, 230, 118, 0.15)'}
+                className={`w-full relative rounded-2xl sm:rounded-3xl p-4 sm:p-7 flex flex-col justify-between transition-all duration-300 ${
+                  p.popular
+                    ? 'bg-[#141722] border-2 border-[#00E676] glow-electric lg:-translate-y-2'
+                    : 'bg-[#0F111A] border border-[#242838]'
+                }`}
+              >
+                {p.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#00E676] text-zinc-950 font-black text-[9px] sm:text-[10px] tracking-wider uppercase shadow-md z-10">
+                    {p.badgeText}
                   </div>
+                )}
+
+                <div className="space-y-3.5 z-10">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h3 className="text-base sm:text-2xl font-black text-white">{p.name}</h3>
+                      <p className="text-[11px] sm:text-xs text-zinc-400 mt-0.5 leading-relaxed">{p.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Price Display & Trial Note */}
+                  <div className="py-2 border-y border-[#242838] space-y-1">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-xs font-bold text-zinc-400">R$</span>
+                      <span className="text-2xl sm:text-4xl font-black text-white">{p.price}</span>
+                      <span className="text-xs text-zinc-400 font-medium">{p.period}</span>
+                    </div>
+                    <div className="inline-block text-[9px] sm:text-[10px] font-bold text-[#00E676] bg-[#00E676]/10 px-2 py-0.5 rounded border border-[#00E676]/30">
+                      Inclui 3 Dias de Teste Grátis
+                    </div>
+                  </div>
+
+                  {/* Features List */}
+                  <ul className="space-y-1.5 text-[11px] sm:text-xs">
+                    {p.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-center gap-2 text-zinc-300">
+                        <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#00E676]/10 text-[#00E676] flex items-center justify-center shrink-0">
+                          <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                        </div>
+                        <span className="truncate">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Price Display & Trial Note */}
-                <div className="py-2 border-y border-[#242838] space-y-1">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-xs font-bold text-zinc-400">R$</span>
-                    <span className="text-2xl sm:text-4xl font-black text-white">{p.price}</span>
-                    <span className="text-xs text-zinc-400 font-medium">{p.period}</span>
-                  </div>
-                  <div className="inline-block text-[9px] sm:text-[10px] font-bold text-[#00E676] bg-[#00E676]/10 px-2 py-0.5 rounded border border-[#00E676]/30">
-                    Inclui 3 Dias de Teste Grátis
-                  </div>
+                <div className="pt-4 sm:pt-6 z-10">
+                  <Button
+                    variant={p.popular ? 'electric' : 'outline'}
+                    size="md"
+                    onClick={onOpenTrial}
+                    icon={<ArrowRight className="w-4 h-4" />}
+                    className="w-full text-xs sm:text-sm"
+                  >
+                    {p.ctaText}
+                  </Button>
                 </div>
-
-                {/* Features List */}
-                <ul className="space-y-1.5 text-[11px] sm:text-xs">
-                  {p.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-center gap-2 text-zinc-300">
-                      <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#00E676]/10 text-[#00E676] flex items-center justify-center shrink-0">
-                        <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                      </div>
-                      <span className="truncate">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="pt-4 sm:pt-6">
-                <Button
-                  variant={p.popular ? 'electric' : 'outline'}
-                  size="md"
-                  onClick={onOpenTrial}
-                  icon={<ArrowRight className="w-4 h-4" />}
-                  className="w-full text-xs sm:text-sm"
-                >
-                  {p.ctaText}
-                </Button>
-              </div>
+              </SpotlightCard>
             </div>
           ))}
         </div>

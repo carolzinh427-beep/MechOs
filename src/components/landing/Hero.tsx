@@ -13,7 +13,6 @@ import { Button } from '../ui/Button';
 import { SplitText } from '../ui/SplitText';
 import { Counter } from '../ui/Counter';
 import Lightfall from '../ui/Lightfall';
-import TechTool3D from '../ui/TechTool3D';
 
 interface HeroProps {
   onOpenTrial: () => void;
@@ -50,59 +49,50 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Header Row: Side-by-side on desktop, compact and organized on mobile */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 lg:gap-12 max-w-6xl mx-auto">
-          
-          {/* Left Column: Words, Headline, Subheadline & CTAs */}
-          <div className="text-center sm:text-left space-y-3 md:space-y-6 max-w-3xl flex-1">
-            {/* Main Animated Headline using React Bits SplitText */}
-            <div>
-              <SplitText
-                tag="h1"
-                text="Tenha o controle completo da sua operação automotiva"
-                className="text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]"
-                delay={35}
-                duration={0.8}
-                ease="power3.out"
-                splitType="words, chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-              />
-            </div>
-
-            {/* Subheadline */}
-            <p className="text-xs sm:text-lg text-zinc-400 font-medium max-w-2xl mx-auto sm:mx-0 leading-relaxed">
-              OS, estoque, financeiro, CRM, faturamento, clientes, veículos e Inteligência Artificial reunidos em um único sistema de alta performance.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2.5 pt-1">
-              <Button
-                variant="electric"
-                size="lg"
-                onClick={onOpenTrial}
-                icon={<ArrowRight className="w-5 h-5" />}
-                className="w-full sm:w-auto"
-              >
-                Começar teste agora
-              </Button>
-              <a
-                href="https://wa.me/5561985890417?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20MechOS."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto"
-              >
-                <Button variant="outline" size="lg" icon={<MessageCircle className="w-4 h-4 text-[#25D366]" />} className="w-full">
-                  Tirar dúvidas no WhatsApp
-                </Button>
-              </a>
-            </div>
+        {/* Top Header Row: Centered layout without 3D effect */}
+        <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto">
+          {/* Main Animated Headline using React Bits SplitText */}
+          <div>
+            <SplitText
+              tag="h1"
+              text="Tenha o controle completo da sua operação automotiva"
+              className="text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]"
+              delay={35}
+              duration={0.8}
+              ease="power3.out"
+              splitType="words, chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+            />
           </div>
 
-          {/* Right Column: 3D Screwdriver Tool */}
-          <div className="shrink-0 flex items-center justify-center my-2 sm:my-0">
-            <TechTool3D />
+          {/* Subheadline */}
+          <p className="text-xs sm:text-lg text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
+            OS, estoque, financeiro, CRM, faturamento, clientes, veículos e Inteligência Artificial reunidos em um único sistema de alta performance.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-1">
+            <Button
+              variant="electric"
+              size="lg"
+              onClick={onOpenTrial}
+              icon={<ArrowRight className="w-5 h-5" />}
+              className="w-full sm:w-auto"
+            >
+              Começar teste agora
+            </Button>
+            <a
+              href="https://wa.me/5561985890417?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20MechOS."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button variant="outline" size="lg" icon={<MessageCircle className="w-4 h-4 text-[#25D366]" />} className="w-full">
+                Tirar dúvidas no WhatsApp
+              </Button>
+            </a>
           </div>
         </div>
 

@@ -10,6 +10,7 @@ import {
   FileSpreadsheet
 } from 'lucide-react';
 import { SplitText } from '../ui/SplitText';
+import SpotlightCard from '../ui/SpotlightCard';
 
 export const SolutionBento: React.FC = () => {
   return (
@@ -32,8 +33,11 @@ export const SolutionBento: React.FC = () => {
         {/* Bento Grid: 2 cols on mobile */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
           {/* Card 1: OS (Span 2) */}
-          <div className="col-span-2 bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col justify-between group transition-all duration-300 glow-card-hover">
-            <div className="space-y-2 sm:space-y-4">
+          <SpotlightCard
+            spotlightColor="rgba(0, 230, 118, 0.2)"
+            className="col-span-2 bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col justify-between group transition-all duration-300"
+          >
+            <div className="space-y-2 sm:space-y-4 z-10">
               <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#00E676]/10 border border-[#00E676]/40 flex items-center justify-center text-[#00E676] group-hover:scale-110 transition-transform">
                 <Wrench className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
@@ -42,15 +46,18 @@ export const SolutionBento: React.FC = () => {
                 Crie, acompanhe e finalize OS com poucos cliques. Controle peças aplicadas, mão de obra e técnicos responsáveis.
               </p>
             </div>
-            <div className="mt-3 sm:mt-6 p-2.5 sm:p-4 rounded-lg sm:rounded-xl bg-[#0F111A] border border-[#242838] flex items-center justify-between text-[11px] sm:text-xs">
+            <div className="mt-3 sm:mt-6 p-2.5 sm:p-4 rounded-lg sm:rounded-xl bg-[#0F111A] border border-[#242838] flex items-center justify-between text-[11px] sm:text-xs z-10">
               <span className="text-zinc-300 font-mono">Status: Em Execução</span>
               <span className="font-extrabold text-[#00E676]">R$ 1.190,00</span>
             </div>
-          </div>
+          </SpotlightCard>
 
           {/* Card 2: ESTOQUE */}
-          <div className="bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300 glow-card-hover">
-            <div className="space-y-2 sm:space-y-4">
+          <SpotlightCard
+            spotlightColor="rgba(16, 185, 129, 0.2)"
+            className="bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300"
+          >
+            <div className="space-y-2 sm:space-y-4 z-10">
               <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
                 <Boxes className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
@@ -59,11 +66,14 @@ export const SolutionBento: React.FC = () => {
                 Saiba exatamente o que entrou, saiu e o que precisa ser reposto.
               </p>
             </div>
-          </div>
+          </SpotlightCard>
 
           {/* Card 3: CRM */}
-          <div className="bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300 glow-card-hover">
-            <div className="space-y-2 sm:space-y-4">
+          <SpotlightCard
+            spotlightColor="rgba(168, 85, 247, 0.2)"
+            className="bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300"
+          >
+            <div className="space-y-2 sm:space-y-4 z-10">
               <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl bg-purple-500/10 border border-purple-500/40 flex items-center justify-center text-purple-400">
                 <Users className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
@@ -72,11 +82,14 @@ export const SolutionBento: React.FC = () => {
                 Organize clientes e acompanhe negociações em Kanban.
               </p>
             </div>
-          </div>
+          </SpotlightCard>
 
           {/* Card 4: FINANCEIRO */}
-          <div className="bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300 glow-card-hover">
-            <div className="space-y-2 sm:space-y-4">
+          <SpotlightCard
+            spotlightColor="rgba(0, 230, 118, 0.2)"
+            className="bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300"
+          >
+            <div className="space-y-2 sm:space-y-4 z-10">
               <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl bg-[#00E676]/10 border border-[#00E676]/40 flex items-center justify-center text-[#00E676]">
                 <DollarSign className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
@@ -85,11 +98,14 @@ export const SolutionBento: React.FC = () => {
                 Tenha clareza sobre receitas, despesas e margem de lucro.
               </p>
             </div>
-          </div>
+          </SpotlightCard>
 
           {/* Card 5: AGENDA */}
-          <div className="bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300 glow-card-hover">
-            <div className="space-y-2 sm:space-y-4">
+          <SpotlightCard
+            spotlightColor="rgba(59, 130, 246, 0.2)"
+            className="bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300"
+          >
+            <div className="space-y-2 sm:space-y-4 z-10">
               <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl bg-blue-500/10 border border-blue-500/40 flex items-center justify-center text-blue-400">
                 <Calendar className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
@@ -98,11 +114,14 @@ export const SolutionBento: React.FC = () => {
                 Organize serviços e horários da sua equipe de técnicos.
               </p>
             </div>
-          </div>
+          </SpotlightCard>
 
           {/* Card 6: CLIENTES E VEÍCULOS (Span 2) */}
-          <div className="col-span-2 bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col justify-between group transition-all duration-300 glow-card-hover">
-            <div className="space-y-2 sm:space-y-4">
+          <SpotlightCard
+            spotlightColor="rgba(0, 230, 118, 0.2)"
+            className="col-span-2 bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col justify-between group transition-all duration-300"
+          >
+            <div className="space-y-2 sm:space-y-4 z-10">
               <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#00E676]/10 border border-[#00E676]/40 flex items-center justify-center text-[#00E676]">
                 <Car className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
@@ -111,11 +130,14 @@ export const SolutionBento: React.FC = () => {
                 Histórico completo do cliente e do veículo na palma da mão. Consulte por placa ou CPF/CNPJ instantaneamente.
               </p>
             </div>
-          </div>
+          </SpotlightCard>
 
           {/* Card 7: FATURAMENTO */}
-          <div className="bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300 glow-card-hover">
-            <div className="space-y-2 sm:space-y-4">
+          <SpotlightCard
+            spotlightColor="rgba(245, 158, 11, 0.2)"
+            className="bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300"
+          >
+            <div className="space-y-2 sm:space-y-4 z-10">
               <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400">
                 <Receipt className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
@@ -124,11 +146,14 @@ export const SolutionBento: React.FC = () => {
                 Centralize suas vendas e relatórios de performance.
               </p>
             </div>
-          </div>
+          </SpotlightCard>
 
           {/* Card 8: NF-e E NFS-e */}
-          <div className="bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300 glow-card-hover">
-            <div className="space-y-2 sm:space-y-4">
+          <SpotlightCard
+            spotlightColor="rgba(59, 130, 246, 0.2)"
+            className="bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between group transition-all duration-300"
+          >
+            <div className="space-y-2 sm:space-y-4 z-10">
               <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl bg-blue-500/10 border border-blue-500/40 flex items-center justify-center text-blue-400">
                 <FileSpreadsheet className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
@@ -137,9 +162,10 @@ export const SolutionBento: React.FC = () => {
                 Emissão fiscal integrada de notas de produto e serviço.
               </p>
             </div>
-          </div>
+          </SpotlightCard>
         </div>
       </div>
     </section>
   );
 };
+
