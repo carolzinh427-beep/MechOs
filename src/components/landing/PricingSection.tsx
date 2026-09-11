@@ -126,15 +126,15 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
           />
         </div>
 
-        {/* Indicador de rolagem horizontal para mobile */}
-        <div className="flex lg:hidden items-center justify-center gap-1.5 text-[11px] font-bold text-zinc-400 mb-3 animate-pulse">
-          <span>← Deslize para lado para ver os planos →</span>
+        {/* Indicador de rolagem horizontal para mobile com bom espaçamento */}
+        <div className="flex lg:hidden items-center justify-center gap-1.5 text-[11px] font-bold text-[#00E676] mb-5 animate-pulse">
+          <span>← Deslize para o lado para ver os planos →</span>
         </div>
 
         {/* Pricing Cards - Side-by-Side Horizontal Scroll no Mobile / Grid 3 Colunas no Desktop */}
         <div
           ref={containerRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-3.5 sm:gap-6 pb-6 px-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 items-stretch [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-3.5 sm:gap-6 pb-6 px-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 items-stretch [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pt-1"
         >
           {plans.map((p, idx) => (
             <div key={idx} ref={cardRefs[idx]} className="shrink-0 snap-center w-[85vw] max-w-[310px] sm:w-[340px] lg:w-auto flex">
@@ -146,13 +146,15 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
                     : 'bg-[#0F111A] border border-[#242838]'
                 }`}
               >
-                {p.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-[#00E676] text-zinc-950 font-black text-[9px] sm:text-[10px] tracking-wider uppercase shadow-md z-10">
-                    {p.badgeText}
-                  </div>
-                )}
-
                 <div className="space-y-3.5 z-10">
+                  {p.popular && (
+                    <div className="flex justify-start">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#00E676] text-zinc-950 font-black text-[9px] sm:text-[10px] tracking-wider uppercase shadow-md">
+                        {p.badgeText}
+                      </span>
+                    </div>
+                  )}
+
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <h3 className="text-base sm:text-2xl font-black text-white">{p.name}</h3>
