@@ -99,7 +99,7 @@ vec2 sceneC(vec2 frag, vec2 r) {
   float z = 0.0;
   float d = 1e3;
   vec4 O = vec4(0.0);
-  for (int k = 0; k < 39; k++) {
+  for (int k = 0; k < 18; k++) {
     if (d <= 1e-4) break;
     O = z * normalize(vec4(P, uZoom, 0.0)) - vec4(0.0, 4.0, 1.0, 0.0) / 4.5;
     d = 1.0 - sqrt(length(O * O));
@@ -239,10 +239,13 @@ export const Lightfall: React.FC<LightfallProps> = ({
     const container = containerRef.current;
     if (!container) return;
 
+    // Cap DPR to 1.25 max to prevent high-DPR mobile screen GPU lagging
+    const targetDpr = dpr ?? (typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 1.25) : 1);
+
     const renderer = new Renderer({
-      dpr: dpr ?? (typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1),
+      dpr: targetDpr,
       alpha: true,
-      antialias: true
+      antialias: false
     });
     rendererRef.current = renderer;
     const gl = renderer.gl;
@@ -294,6 +297,15 @@ export const Lightfall: React.FC<LightfallProps> = ({
     const mesh = new Mesh(gl, { geometry, program });
     meshRef.current = mesh;
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(container);
+
     const resize = () => {
       if (!container || !rendererRef.current) return;
       const rect = container.getBoundingClientRect();
@@ -321,6 +333,8 @@ export const Lightfall: React.FC<LightfallProps> = ({
 
     const loop = (t: number) => {
       rafRef.current = requestAnimationFrame(loop);
+      if (!isVisible || paused) return;
+
       uniforms.iTime.value = t * 0.001;
       if (mouseDampening > 0) {
         if (!lastTimeRef.current) lastTimeRef.current = t;
@@ -336,7 +350,7 @@ export const Lightfall: React.FC<LightfallProps> = ({
       } else {
         lastTimeRef.current = t;
       }
-      if (!paused && programRef.current && meshRef.current && rendererRef.current) {
+      if (programRef.current && meshRef.current && rendererRef.current) {
         try {
           renderer.render({ scene: meshRef.current });
         } catch (err) {
@@ -349,6 +363,7 @@ export const Lightfall: React.FC<LightfallProps> = ({
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       if (mouseInteraction) canvas.removeEventListener('pointermove', onPointerMove);
+      observer.disconnect();
       ro.disconnect();
       if (canvas.parentElement === container) {
         container.removeChild(canvas);

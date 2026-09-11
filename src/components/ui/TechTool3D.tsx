@@ -109,12 +109,13 @@ export const TechTool3D: React.FC<TechTool3DProps> = ({ className = '' }) => {
       <div className="absolute inset-0 bg-[#00E676]/15 blur-2xl rounded-full pointer-events-none" />
 
       <Canvas
-        shadows
+        shadows={false}
+        dpr={[1, 1.25]}
         camera={{ position: [0, 0, 4.2], fov: 45 }}
         style={{ width: '100%', height: '100%', pointerEvents: 'auto' }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
       >
-        <ambientLight intensity={0.6} />
+        <ambientLight intensity={0.7} />
         <directionalLight position={[5, 5, 5]} intensity={1.8} color="#ffffff" />
         <directionalLight position={[-5, -5, -2]} intensity={0.9} color="#00E676" />
         <pointLight position={[0, 0, 3]} intensity={1.2} color="#00E676" />

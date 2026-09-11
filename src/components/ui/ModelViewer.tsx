@@ -474,9 +474,10 @@ export const ModelViewer: React.FC<ModelViewerProps> = ({
       )}
 
       <Canvas
-        shadows
+        shadows={false}
+        dpr={[1, 1.25]}
         frameloop="demand"
-        gl={{ preserveDrawingBuffer: true }}
+        gl={{ preserveDrawingBuffer: true, powerPreference: 'high-performance' }}
         onCreated={({ gl, scene, camera }) => {
           rendererRef.current = gl;
           sceneRef.current = scene;

@@ -73,9 +73,17 @@
 }
 
 .glass-header {
-  background: rgba(7, 8, 12, 0.85);
+  background: rgba(7, 8, 12, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+}
+
+@media (max-width: 640px) {
+  .glass-header {
+    background: rgba(7, 8, 12, 0.97);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 .glass-card {
