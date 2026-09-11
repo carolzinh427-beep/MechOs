@@ -32,7 +32,7 @@ export const SplitText: React.FC<SplitTextProps> = ({
   to = { opacity: 1, y: 0 },
   threshold = 0.1,
   rootMargin = '-100px',
-  textAlign = 'center',
+  textAlign = 'inherit',
   tag = 'p',
   onLetterAnimationComplete
 }) => {
@@ -109,6 +109,7 @@ export const SplitText: React.FC<SplitTextProps> = ({
           },
           onComplete: () => {
             animationCompletedRef.current = true;
+            gsap.set(targets, { clearProps: 'transform,willChange' });
             onCompleteRef.current?.();
           },
           willChange: 'transform, opacity',
@@ -145,9 +146,9 @@ export const SplitText: React.FC<SplitTextProps> = ({
     <Tag
       ref={ref}
       style={{
-        textAlign,
+        textAlign: textAlign !== 'inherit' ? textAlign : undefined,
         overflow: 'hidden',
-        display: 'inline-block',
+        display: 'block',
         whiteSpace: 'normal',
         wordWrap: 'break-word',
         willChange: 'transform, opacity'
@@ -157,15 +158,21 @@ export const SplitText: React.FC<SplitTextProps> = ({
       {words.map((word, wordIndex) => (
         <span
           key={`word-${wordIndex}`}
-          className="split-word inline-block whitespace-nowrap"
-          style={{ marginRight: wordIndex < words.length - 1 ? '0.25em' : '0' }}
+          className="split-word inline-block whitespace-nowrap align-bottom"
+          style={{
+            marginRight: wordIndex < words.length - 1 ? '0.25em' : '0',
+            verticalAlign: 'bottom'
+          }}
         >
           {splitType.includes('chars')
             ? word.split('').map((char, charIndex) => (
                 <span
                   key={`char-${wordIndex}-${charIndex}`}
-                  className="split-char inline-block"
-                  style={{ willChange: 'transform, opacity' }}
+                  className="split-char inline-block align-bottom"
+                  style={{
+                    willChange: 'transform, opacity',
+                    verticalAlign: 'bottom'
+                  }}
                 >
                   {char}
                 </span>
