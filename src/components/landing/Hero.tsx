@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
 import {
   ArrowRight,
-  Play,
   ShieldCheck,
   TrendingUp,
   Wrench,
-  Users,
   Car,
   Boxes,
-  Calendar,
-  Sparkles,
-  CheckCircle2,
-  DollarSign,
-  ChevronRight,
   MessageCircle
 } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { Badge } from '../ui/Badge';
 import { SplitText } from '../ui/SplitText';
-import ModelViewer from '../ui/ModelViewer';
 
 interface HeroProps {
   onOpenTrial: () => void;
@@ -84,48 +75,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
           </p>
         </div>
 
-        {/* 3D Interactive Vehicle Showcase (React Bits ModelViewer) */}
-        <div className="mt-12 md:mt-16 max-w-4xl mx-auto bg-[#0F111A]/90 border border-[#00E676]/30 rounded-3xl p-4 md:p-6 shadow-[0_0_50px_rgba(0,230,118,0.15)] relative overflow-hidden backdrop-blur-md">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-3 text-center md:text-left md:max-w-xs">
-              <Badge variant="electric" icon={<Sparkles className="w-3.5 h-3.5" />}>
-                Modelagem 3D em Tempo Real
-              </Badge>
-              <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">
-                Prontuário & Inspeção 3D do Veículo
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                No MechOS você registra avarias, inspeções e peças em modelos tridimensionais interativos. Arraste com o mouse para girar o veículo em 360°.
-              </p>
-              <div className="flex items-center justify-center md:justify-start gap-2 pt-1 text-[11px] text-[#00E676] font-semibold">
-                <span className="w-2 h-2 rounded-full bg-[#00E676] animate-ping" />
-                Interativo • Rotacione ou use Scroll
-              </div>
-            </div>
-
-            {/* 3D Model Canvas Container */}
-            <div className="relative w-full md:w-[420px] h-[260px] md:h-[300px] flex items-center justify-center bg-[#07080C] border border-[#242838] rounded-2xl overflow-hidden shadow-inner">
-              <ModelViewer
-                url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
-                width="100%"
-                height="100%"
-                autoRotate={true}
-                autoRotateSpeed={0.6}
-                environmentPreset="night"
-                ambientIntensity={0.6}
-                keyLightIntensity={1.5}
-                enableHoverRotation={true}
-                enableMouseParallax={true}
-                enableManualRotation={true}
-                enableManualZoom={true}
-                showScreenshotButton={true}
-              />
-            </div>
-          </div>
-        </div>
-
         {/* Mockup Visual do Sistema */}
-        <div className="mt-8 md:mt-16 relative max-w-5xl mx-auto">
+        <div className="mt-8 md:mt-20 relative max-w-5xl mx-auto">
           {/* Decorative Glow Ring */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00E676]/40 via-emerald-500/20 to-[#00E676]/40 rounded-2xl md:rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000"></div>
 

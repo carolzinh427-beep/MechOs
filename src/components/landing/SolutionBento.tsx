@@ -9,7 +9,6 @@ import {
   Receipt,
   FileSpreadsheet
 } from 'lucide-react';
-import { Badge } from '../ui/Badge';
 import { SplitText } from '../ui/SplitText';
 
 export const SolutionBento: React.FC = () => {
@@ -38,7 +37,6 @@ export const SolutionBento: React.FC = () => {
               <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#00E676]/10 border border-[#00E676]/40 flex items-center justify-center text-[#00E676] group-hover:scale-110 transition-transform">
                 <Wrench className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
-              <Badge variant="electric" size="sm">01. Operacional</Badge>
               <h3 className="text-base sm:text-2xl font-black text-white">ORDENS DE SERVIÇO (OS)</h3>
               <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
                 Crie, acompanhe e finalize OS com poucos cliques. Controle peças aplicadas, mão de obra e técnicos responsáveis.
