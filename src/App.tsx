@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar } from './components/landing/Navbar';
 import { Hero } from './components/landing/Hero';
 import { SegmentTicker } from './components/landing/SegmentTicker';
@@ -14,48 +14,42 @@ import { Testimonials } from './components/landing/Testimonials';
 import { FAQSection } from './components/landing/FAQSection';
 import { FinalCTA } from './components/landing/FinalCTA';
 import { Footer } from './components/landing/Footer';
-import { ModalDemo } from './components/ui/ModalDemo';
+import { FloatingWhatsApp } from './components/ui/FloatingWhatsApp';
+
+const SYSTEM_URL = 'https://mech.zyphorlabscorporation.online/';
 
 export function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState('Profissional');
-
-  const handleOpenTrial = (planName?: string) => {
-    if (planName) setSelectedPlan(planName);
-    setIsModalOpen(true);
+  const handleGoToSystem = () => {
+    window.open(SYSTEM_URL, '_blank');
   };
 
   return (
     <div className="min-h-screen bg-[#07080C] text-white selection:bg-[#00E676] selection:text-zinc-950">
       {/* Navbar */}
-      <Navbar onOpenTrial={() => handleOpenTrial('Profissional')} />
+      <Navbar onOpenTrial={handleGoToSystem} />
 
       {/* Main Landing Sections */}
       <main>
-        <Hero onOpenTrial={() => handleOpenTrial('Profissional')} />
+        <Hero onOpenTrial={handleGoToSystem} />
         <SegmentTicker />
         <ProblemSection />
         <SolutionBento />
-        <AISection onOpenTrial={() => handleOpenTrial('Profissional')} />
+        <AISection onOpenTrial={handleGoToSystem} />
         <DashboardSection />
-        <VehicleHistory onOpenTrial={() => handleOpenTrial('Profissional')} />
-        <HowItWorks onOpenTrial={() => handleOpenTrial('Profissional')} />
-        <PricingSection onOpenTrial={handleOpenTrial} />
+        <VehicleHistory onOpenTrial={handleGoToSystem} />
+        <HowItWorks onOpenTrial={handleGoToSystem} />
+        <PricingSection onOpenTrial={handleGoToSystem} />
         <Comparison />
         <Testimonials />
         <FAQSection />
-        <FinalCTA onOpenTrial={() => handleOpenTrial('Profissional')} />
+        <FinalCTA onOpenTrial={handleGoToSystem} />
       </main>
 
       {/* Footer */}
       <Footer />
 
-      {/* Trial Lead Capture Modal */}
-      <ModalDemo
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        selectedPlan={selectedPlan}
-      />
+      {/* Floating WhatsApp Action Button */}
+      <FloatingWhatsApp />
     </div>
   );
 }

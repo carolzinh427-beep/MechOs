@@ -10,15 +10,21 @@ import {
   FileSpreadsheet
 } from 'lucide-react';
 import { Badge } from '../ui/Badge';
+import { SplitText } from '../ui/SplitText';
 
 export const SolutionBento: React.FC = () => {
   return (
     <section id="recursos" className="py-10 md:py-28 bg-[#0A0C14] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-16">
-          <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
-            Tudo o que sua empresa precisa. <span className="text-[#00E676]">Em um só lugar.</span>
-          </h2>
+          <SplitText
+            tag="h2"
+            text="Tudo o que sua empresa precisa. Em um só lugar."
+            className="text-2xl sm:text-5xl font-black text-white tracking-tight"
+            delay={30}
+            duration={0.7}
+            splitType="words, chars"
+          />
           <p className="text-xs sm:text-base text-zinc-400">
             A plataforma MechOS conecta a recepção até o estoque e conciliação financeira.
           </p>

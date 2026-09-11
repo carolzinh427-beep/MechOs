@@ -12,10 +12,13 @@ import {
   Sparkles,
   CheckCircle2,
   DollarSign,
-  ChevronRight
+  ChevronRight,
+  MessageCircle
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
+import { SplitText } from '../ui/SplitText';
+import ModelViewer from '../ui/ModelViewer';
 
 interface HeroProps {
   onOpenTrial: () => void;
@@ -31,10 +34,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto space-y-4 md:space-y-6">
-          {/* Main Headline */}
-          <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1]">
-            Tenha o <span className="text-gradient-electric">controle completo</span> da sua operação automotiva.
-          </h1>
+          {/* Main Animated Headline using React Bits SplitText */}
+          <div>
+            <SplitText
+              tag="h1"
+              text="Tenha o controle completo da sua operação automotiva."
+              className="text-3xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1]"
+              delay={35}
+              duration={0.8}
+              ease="power3.out"
+              splitType="words, chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+            />
+          </div>
 
           {/* Subheadline */}
           <p className="text-xs sm:text-xl text-zinc-400 font-medium max-w-3xl mx-auto leading-relaxed">
@@ -50,11 +64,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
               icon={<ArrowRight className="w-5 h-5" />}
               className="w-full sm:w-auto"
             >
-              Começar agora
+              Começar teste agora
             </Button>
-            <a href="#como-funciona" className="w-full sm:w-auto">
-              <Button variant="outline" size="lg" icon={<Play className="w-4 h-4 fill-current" />} className="w-full">
-                Ver como funciona
+            <a
+              href="https://wa.me/5561985890417?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20MechOS."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button variant="outline" size="lg" icon={<MessageCircle className="w-4 h-4 text-[#25D366]" />} className="w-full">
+                Tirar dúvidas no WhatsApp
               </Button>
             </a>
           </div>
@@ -65,8 +84,48 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
           </p>
         </div>
 
+        {/* 3D Interactive Vehicle Showcase (React Bits ModelViewer) */}
+        <div className="mt-12 md:mt-16 max-w-4xl mx-auto bg-[#0F111A]/90 border border-[#00E676]/30 rounded-3xl p-4 md:p-6 shadow-[0_0_50px_rgba(0,230,118,0.15)] relative overflow-hidden backdrop-blur-md">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-3 text-center md:text-left md:max-w-xs">
+              <Badge variant="electric" icon={<Sparkles className="w-3.5 h-3.5" />}>
+                Modelagem 3D em Tempo Real
+              </Badge>
+              <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">
+                Prontuário & Inspeção 3D do Veículo
+              </h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                No MechOS você registra avarias, inspeções e peças em modelos tridimensionais interativos. Arraste com o mouse para girar o veículo em 360°.
+              </p>
+              <div className="flex items-center justify-center md:justify-start gap-2 pt-1 text-[11px] text-[#00E676] font-semibold">
+                <span className="w-2 h-2 rounded-full bg-[#00E676] animate-ping" />
+                Interativo • Rotacione ou use Scroll
+              </div>
+            </div>
+
+            {/* 3D Model Canvas Container */}
+            <div className="relative w-full md:w-[420px] h-[260px] md:h-[300px] flex items-center justify-center bg-[#07080C] border border-[#242838] rounded-2xl overflow-hidden shadow-inner">
+              <ModelViewer
+                url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
+                width="100%"
+                height="100%"
+                autoRotate={true}
+                autoRotateSpeed={0.6}
+                environmentPreset="night"
+                ambientIntensity={0.6}
+                keyLightIntensity={1.5}
+                enableHoverRotation={true}
+                enableMouseParallax={true}
+                enableManualRotation={true}
+                enableManualZoom={true}
+                showScreenshotButton={true}
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Mockup Visual do Sistema */}
-        <div className="mt-8 md:mt-20 relative max-w-5xl mx-auto">
+        <div className="mt-8 md:mt-16 relative max-w-5xl mx-auto">
           {/* Decorative Glow Ring */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00E676]/40 via-emerald-500/20 to-[#00E676]/40 rounded-2xl md:rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000"></div>
 
