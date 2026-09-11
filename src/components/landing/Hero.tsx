@@ -98,21 +98,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
                 </Button>
               </a>
             </div>
-
-            {/* Trust note */}
-            <p className="text-[11px] sm:text-xs text-zinc-400 font-medium flex items-center justify-center lg:justify-start gap-1.5 pt-1">
-              <Clock className="w-4 h-4 text-[#00E676] shrink-0" /> Quase{' '}
-              <Counter
-                value={76}
-                fontSize={13}
-                padding={2}
-                gap={1}
-                textColor="#00E676"
-                fontWeight={800}
-                horizontalPadding={0}
-              />{' '}
-              horas economizadas por mês pelas oficinas que usam o MechOS.
-            </p>
           </div>
 
           {/* Right Column: 3D Technological Workshop Element (Side by side with text) */}
