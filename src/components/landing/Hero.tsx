@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { SplitText } from '../ui/SplitText';
+import TechTool3D from '../ui/TechTool3D';
 
 interface HeroProps {
   onOpenTrial: () => void;
@@ -19,64 +20,75 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
   const [activeMockupTab, setActiveMockupTab] = useState<'faturamento' | 'os' | 'estoque'>('faturamento');
 
   return (
-    <section className="relative pt-24 pb-10 md:pt-40 md:pb-28 overflow-hidden">
+    <section className="relative pt-24 pb-10 md:pt-36 md:pb-24 overflow-hidden">
       {/* Subtle Background Glow Effect */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#00E676]/10 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto space-y-4 md:space-y-6">
-          {/* Main Animated Headline using React Bits SplitText */}
-          <div>
-            <SplitText
-              tag="h1"
-              text="Tenha o controle completo da sua operação automotiva."
-              className="text-3xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1]"
-              delay={35}
-              duration={0.8}
-              ease="power3.out"
-              splitType="words, chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-            />
-          </div>
+        
+        {/* Flex container placing the 3D Tech Symbol right beside the words */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12 max-w-6xl mx-auto">
+          
+          {/* Left Column: Words, Headline, Subheadline & CTAs */}
+          <div className="text-center lg:text-left space-y-4 md:space-y-6 max-w-3xl">
+            {/* Main Animated Headline using React Bits SplitText */}
+            <div>
+              <SplitText
+                tag="h1"
+                text="Tenha o controle completo da sua operação automotiva."
+                className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]"
+                delay={35}
+                duration={0.8}
+                ease="power3.out"
+                splitType="words, chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+              />
+            </div>
 
-          {/* Subheadline */}
-          <p className="text-xs sm:text-xl text-zinc-400 font-medium max-w-3xl mx-auto leading-relaxed">
-            OS, estoque, financeiro, CRM, faturamento, clientes, veículos e Inteligência Artificial reunidos em um único sistema de alta performance.
-          </p>
+            {/* Subheadline */}
+            <p className="text-xs sm:text-lg text-zinc-400 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              OS, estoque, financeiro, CRM, faturamento, clientes, veículos e Inteligência Artificial reunidos em um único sistema de alta performance.
+            </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 sm:pt-4">
-            <Button
-              variant="electric"
-              size="lg"
-              onClick={onOpenTrial}
-              icon={<ArrowRight className="w-5 h-5" />}
-              className="w-full sm:w-auto"
-            >
-              Começar teste agora
-            </Button>
-            <a
-              href="https://wa.me/5561985890417?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20MechOS."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto"
-            >
-              <Button variant="outline" size="lg" icon={<MessageCircle className="w-4 h-4 text-[#25D366]" />} className="w-full">
-                Tirar dúvidas no WhatsApp
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
+              <Button
+                variant="electric"
+                size="lg"
+                onClick={onOpenTrial}
+                icon={<ArrowRight className="w-5 h-5" />}
+                className="w-full sm:w-auto"
+              >
+                Começar teste agora
               </Button>
-            </a>
+              <a
+                href="https://wa.me/5561985890417?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20MechOS."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button variant="outline" size="lg" icon={<MessageCircle className="w-4 h-4 text-[#25D366]" />} className="w-full">
+                  Tirar dúvidas no WhatsApp
+                </Button>
+              </a>
+            </div>
+
+            {/* Trust note */}
+            <p className="text-[11px] sm:text-xs text-zinc-500 font-medium flex items-center justify-center lg:justify-start gap-1.5 pt-1">
+              <ShieldCheck className="w-4 h-4 text-[#00E676]" /> Feito para oficinas e empresas automotivas que querem crescer.
+            </p>
           </div>
 
-          {/* Trust note */}
-          <p className="text-[11px] sm:text-sm text-zinc-500 font-medium flex items-center justify-center gap-1.5 pt-1">
-            <ShieldCheck className="w-4 h-4 text-[#00E676]" /> Feito para oficinas e empresas automotivas que querem crescer.
-          </p>
+          {/* Right Column: 3D Technological Workshop Element (Side by side with text) */}
+          <div className="shrink-0 flex items-center justify-center">
+            <TechTool3D />
+          </div>
         </div>
 
         {/* Mockup Visual do Sistema */}
-        <div className="mt-8 md:mt-20 relative max-w-5xl mx-auto">
+        <div className="mt-10 md:mt-16 relative max-w-5xl mx-auto">
           {/* Decorative Glow Ring */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00E676]/40 via-emerald-500/20 to-[#00E676]/40 rounded-2xl md:rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000"></div>
 
