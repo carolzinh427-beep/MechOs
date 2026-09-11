@@ -39,9 +39,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
         'Envio de Orçamentos via WhatsApp',
         'Suporte Prioritário no WhatsApp'
       ],
-      popular: true,
-      badgeText: 'MAIS ESCOLHIDO',
-      ctaText: 'Testar 3 Dias Grátis'
+      popular: false,
+      ctaText: 'Escolher Profissional'
     },
     {
       name: 'Premium',
@@ -57,8 +56,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
         'Histórico Completo por Placa Ilimitado',
         'Gerente de Conta Dedicado'
       ],
-      popular: false,
-      ctaText: 'Escolher Premium'
+      popular: true,
+      badgeText: 'MAIS ESCOLHIDO',
+      ctaText: 'Testar 3 Dias Grátis'
     }
   ];
 
