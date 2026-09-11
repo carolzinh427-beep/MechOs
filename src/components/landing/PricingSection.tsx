@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Sparkles, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 interface PricingSectionProps {
@@ -13,6 +13,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
       price: '197',
       period: '/mês',
       description: 'Ideal para oficinas menores e profissionais autônomos em fase de estruturação.',
+      trialBadge: '3 Dias Grátis',
       features: [
         'Até 2 usuários',
         'Ordens de Serviço Ilimitadas',
@@ -22,13 +23,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
         'Suporte por E-mail'
       ],
       popular: false,
-      ctaText: 'Escolher Essencial'
+      ctaText: 'Testar 3 Dias Grátis'
     },
     {
       name: 'Profissional',
       price: '297',
       period: '/mês',
       description: 'Perfeito para centros automotivos e oficinas em crescimento acelerado.',
+      trialBadge: '3 Dias Grátis',
       features: [
         'Até 5 usuários',
         'Tudo do Essencial +',
@@ -40,13 +42,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
         'Suporte Prioritário no WhatsApp'
       ],
       popular: false,
-      ctaText: 'Escolher Profissional'
+      ctaText: 'Testar 3 Dias Grátis'
     },
     {
       name: 'Premium',
       price: '397',
       period: '/mês',
       description: 'Para grandes empresas automotivas e operações multi-técnicos exigentes.',
+      trialBadge: '3 Dias Grátis',
       features: [
         'Usuários Ilimitados',
         'Tudo do Profissional +',
@@ -57,7 +60,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
         'Gerente de Conta Dedicado'
       ],
       popular: true,
-      badgeText: 'MAIS ESCOLHIDO',
+      badgeText: 'MAIS VOTADO',
       ctaText: 'Testar 3 Dias Grátis'
     }
   ];
@@ -69,8 +72,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
             Comece com o plano certo para <span className="text-gradient-electric">sua empresa.</span>
           </h2>
-          <p className="text-xs sm:text-base text-zinc-400">
-            Sem fidelidade ou taxa de adesão. Teste por 3 dias sem informar cartão.
+          <p className="text-xs sm:text-base text-zinc-400 font-medium">
+            Todos os planos possuem <strong className="text-[#00E676]">3 dias de teste grátis</strong> sem necessidade de informar cartão de crédito.
           </p>
         </div>
 
@@ -86,22 +89,29 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
               }`}
             >
               {p.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#00E676] text-zinc-950 font-black text-[10px] tracking-wider uppercase shadow-md flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" /> {p.badgeText}
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#00E676] text-zinc-950 font-black text-[10px] tracking-wider uppercase shadow-md">
+                  {p.badgeText}
                 </div>
               )}
 
               <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg sm:text-2xl font-black text-white">{p.name}</h3>
-                  <p className="text-xs text-zinc-400 mt-1 leading-relaxed">{p.description}</p>
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <h3 className="text-lg sm:text-2xl font-black text-white">{p.name}</h3>
+                    <p className="text-xs text-zinc-400 mt-1 leading-relaxed">{p.description}</p>
+                  </div>
                 </div>
 
-                {/* Price Display */}
-                <div className="flex items-baseline gap-1 py-2 border-y border-[#242838]">
-                  <span className="text-xs font-bold text-zinc-400">R$</span>
-                  <span className="text-3xl sm:text-5xl font-black text-white">{p.price}</span>
-                  <span className="text-xs text-zinc-400 font-medium">{p.period}</span>
+                {/* Price Display & Trial Note */}
+                <div className="py-2 border-y border-[#242838] space-y-1">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-xs font-bold text-zinc-400">R$</span>
+                    <span className="text-3xl sm:text-5xl font-black text-white">{p.price}</span>
+                    <span className="text-xs text-zinc-400 font-medium">{p.period}</span>
+                  </div>
+                  <div className="inline-block text-[10px] font-bold text-[#00E676] bg-[#00E676]/10 px-2 py-0.5 rounded border border-[#00E676]/30">
+                    Inclui 3 Dias de Teste Grátis
+                  </div>
                 </div>
 
                 {/* Features List */}
