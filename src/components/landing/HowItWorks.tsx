@@ -1,7 +1,8 @@
 import React from 'react';
-import { UserPlus, Settings, Rocket, ArrowRight } from 'lucide-react';
+import { UserPlus, Settings, Rocket, ArrowRight, Clock } from 'lucide-react';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
+import { Counter } from '../ui/Counter';
 
 interface HowItWorksProps {
   onOpenTrial: () => void;
@@ -62,9 +63,39 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenTrial }) => {
           ))}
         </div>
 
-        <div className="mt-8 sm:mt-12 text-center">
-          <Button variant="electric" size="lg" onClick={onOpenTrial} icon={<ArrowRight className="w-5 h-5" />} className="w-full sm:w-auto">
-            Começar Teste Grátis Agora
+        {/* Highlight Banner with Counter */}
+        <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-2xl bg-[#141722] border border-[#242838] flex flex-col sm:flex-row items-center justify-between gap-4 max-w-3xl mx-auto text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#00E676]/10 border border-[#00E676]/30 flex items-center justify-center shrink-0">
+              <Clock className="w-5 h-5 text-[#00E676]" />
+            </div>
+            <div>
+              <p className="text-xs sm:text-sm text-zinc-300 font-medium">
+                Resultado comprovado na rotina operacional:
+              </p>
+              <p className="text-sm sm:text-base font-bold text-white flex items-center justify-center sm:justify-start gap-1">
+                Quase{' '}
+                <Counter
+                  value={76}
+                  fontSize={18}
+                  padding={2}
+                  gap={1}
+                  textColor="#00E676"
+                  fontWeight={900}
+                  horizontalPadding={0}
+                />{' '}
+                horas economizadas por mês.
+              </p>
+            </div>
+          </div>
+          <Button
+            variant="electric"
+            size="md"
+            onClick={onOpenTrial}
+            icon={<ArrowRight className="w-4 h-4" />}
+            className="shrink-0 w-full sm:w-auto"
+          >
+            Começar Teste Grátis
           </Button>
         </div>
       </div>
