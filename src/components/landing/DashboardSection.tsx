@@ -18,7 +18,7 @@ export const DashboardSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-14">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
-            Veja sua operação de um jeito <span className="text-gradient-electric">completamente diferente</span>
+            Veja sua operação de um jeito <span className="text-[#00E676]">completamente diferente</span>
           </h2>
           <p className="text-xs sm:text-base text-zinc-400">
             Interface limpa e rápida com gráficos e alertas automáticos para você tomar decisões certas.

@@ -15,7 +15,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenTrial }) => {
       <div className="max-w-3xl mx-auto px-3 sm:px-6 relative z-10">
         <div className="bg-[#141722] border border-[#00E676]/40 rounded-xl sm:rounded-2xl p-3 sm:p-5 text-center space-y-2 sm:space-y-3 glow-electric shadow-lg">
           <h2 className="text-base sm:text-2xl font-black text-white tracking-tight leading-tight">
-            Pare de administrar sua empresa <span className="text-gradient-electric">no improviso</span>
+            Pare de administrar sua empresa <span className="text-[#00E676]">no improviso</span>
           </h2>
 
           <p className="text-[11px] sm:text-xs text-zinc-300 font-medium max-w-lg mx-auto leading-relaxed">
