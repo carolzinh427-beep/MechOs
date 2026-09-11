@@ -1,12 +1,10 @@
 .pill-nav-container {
-  position: fixed;
-  top: 1.25rem;
-  left: 0;
-  right: 0;
+  position: relative;
   display: flex;
   justify-content: center;
-  z-index: 50;
-  pointer-events: none;
+  align-items: center;
+  z-index: 40;
+  pointer-events: auto;
 }
 
 .pill-nav-container * {
@@ -15,21 +13,19 @@
 
 @media (max-width: 768px) {
   .pill-nav-container {
-    width: 100%;
-    left: 0;
-    px: 1rem;
+    width: auto;
   }
 }
 
 .pill-nav {
-  --nav-h: 46px;
-  --logo: 38px;
-  --pill-pad-x: 18px;
-  --pill-gap: 4px;
+  --nav-h: 38px;
+  --logo: 32px;
+  --pill-pad-x: 14px;
+  --pill-gap: 3px;
   width: max-content;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   box-sizing: border-box;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -37,10 +33,9 @@
 
 @media (max-width: 768px) {
   .pill-nav {
-    width: 92%;
-    max-width: 450px;
-    justify-content: space-between;
-    padding: 0 0.5rem;
+    width: auto;
+    justify-content: center;
+    padding: 0;
     background: transparent;
   }
 }
