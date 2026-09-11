@@ -1,93 +1,116 @@
 /* eslint-disable react/no-unknown-property */
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-const ScrewdriverMesh = () => {
+const GearMesh = () => {
   const groupRef = useRef<THREE.Group>(null);
-  const ringRef = useRef<THREE.Mesh>(null);
+  const gearRef = useRef<THREE.Group>(null);
+  const innerRingRef = useRef<THREE.Mesh>(null);
+
+  // Generate 8 3D gear teeth around the ring
+  const teethCount = 8;
+  const teeth = useMemo(() => {
+    const arr = [];
+    const radius = 1.05;
+    for (let i = 0; i < teethCount; i++) {
+      const angle = (i / teethCount) * Math.PI * 2;
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+      arr.push({ x, y, angle });
+    }
+    return arr;
+  }, [teethCount]);
 
   useFrame((state, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.7;
-      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.8) * 0.15;
-      groupRef.current.rotation.z = Math.cos(state.clock.elapsedTime * 0.6) * 0.1;
+    if (gearRef.current) {
+      // Continuous 360 rotation of the 3D gear
+      gearRef.current.rotation.z += delta * 0.8;
     }
-    if (ringRef.current) {
-      ringRef.current.rotation.x += delta * 0.5;
-      ringRef.current.rotation.y -= delta * 0.8;
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.5;
+      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.7) * 0.15;
+    }
+    if (innerRingRef.current) {
+      innerRingRef.current.rotation.z -= delta * 1.2;
     }
   });
 
   return (
-    <group ref={groupRef} rotation={[0.4, 0, 0.4]}>
-      <Float speed={2.5} rotationIntensity={0.6} floatIntensity={0.9}>
-        {/* 3D Screwdriver Group */}
-        <group position={[0, -0.2, 0]}>
-          {/* 1. Ergonomic Handle */}
-          <mesh position={[0, -0.8, 0]} castShadow receiveShadow>
-            <cylinderGeometry args={[0.26, 0.2, 1.1, 16]} />
+    <group ref={groupRef} rotation={[0.4, 0.2, 0]}>
+      <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
+        {/* Main Rotating 3D Gear */}
+        <group ref={gearRef}>
+          {/* Main Gear Outer Ring */}
+          <mesh castShadow receiveShadow>
+            <cylinderGeometry args={[1.0, 1.0, 0.25, 32]} />
             <meshStandardMaterial
               color="#141722"
+              roughness={0.15}
+              metalness={0.9}
+            />
+          </mesh>
+
+          {/* 3D Gear Teeth (Dentes da Engrenagem) */}
+          {teeth.map((tooth, i) => (
+            <mesh
+              key={i}
+              position={[tooth.x, tooth.y, 0]}
+              rotation={[0, 0, tooth.angle]}
+              castShadow
+              receiveShadow
+            >
+              <boxGeometry args={[0.3, 0.25, 0.25]} />
+              <meshStandardMaterial
+                color="#00E676"
+                roughness={0.2}
+                metalness={0.85}
+                emissive="#00E676"
+                emissiveIntensity={0.15}
+              />
+            </mesh>
+          ))}
+
+          {/* Central Hole Cutout Border */}
+          <mesh castShadow receiveShadow>
+            <cylinderGeometry args={[0.55, 0.55, 0.26, 24]} />
+            <meshStandardMaterial
+              color="#00E676"
               roughness={0.2}
               metalness={0.8}
             />
           </mesh>
 
-          {/* Handle Rubber Grip Ribs (Electric Green Details) */}
-          {[-1.1, -0.9, -0.7, -0.5].map((yPos, i) => (
-            <mesh key={i} position={[0, yPos, 0]} castShadow receiveShadow>
-              <torusGeometry args={[0.24 - i * 0.01, 0.035, 12, 32]} />
-              <meshStandardMaterial
-                color="#00E676"
-                roughness={0.3}
-                metalness={0.7}
-                emissive="#00E676"
-                emissiveIntensity={0.2}
-              />
-            </mesh>
-          ))}
-
-          {/* Handle Top Cap / End Nut */}
-          <mesh position={[0, -1.35, 0]} castShadow receiveShadow>
-            <cylinderGeometry args={[0.18, 0.22, 0.2, 16]} />
-            <meshStandardMaterial color="#00E676" roughness={0.2} metalness={0.9} />
-          </mesh>
-
-          {/* 2. Screwdriver Metallic Shaft */}
-          <mesh position={[0, 0.45, 0]} castShadow receiveShadow>
-            <cylinderGeometry args={[0.07, 0.08, 1.4, 16]} />
+          {/* Center Axle Core */}
+          <mesh castShadow receiveShadow>
+            <cylinderGeometry args={[0.3, 0.3, 0.28, 24]} />
             <meshStandardMaterial
-              color="#E2E8F0"
+              color="#0F111A"
               roughness={0.1}
               metalness={0.95}
             />
           </mesh>
 
-          {/* Shaft Collar */}
-          <mesh position={[0, -0.22, 0]} castShadow receiveShadow>
-            <cylinderGeometry args={[0.13, 0.13, 0.15, 16]} />
-            <meshStandardMaterial color="#00E676" roughness={0.2} metalness={0.8} />
-          </mesh>
-
-          {/* 3. Screwdriver Flathead / Tip */}
-          <mesh position={[0, 1.25, 0]} castShadow receiveShadow>
-            <boxGeometry args={[0.16, 0.25, 0.025]} />
+          {/* Electric Center Dot */}
+          <mesh position={[0, 0, 0.15]}>
+            <sphereGeometry args={[0.12, 16, 16]} />
             <meshStandardMaterial
-              color="#CBD5E1"
-              roughness={0.15}
-              metalness={0.95}
+              color="#00E676"
+              roughness={0.1}
+              metalness={0.5}
+              emissive="#00E676"
+              emissiveIntensity={0.8}
             />
           </mesh>
         </group>
 
-        {/* Outer Orbiting Tech Ring */}
-        <mesh ref={ringRef} castShadow receiveShadow>
-          <torusGeometry args={[1.5, 0.03, 16, 80]} />
+        {/* Counter-rotating Inner Tech Ring */}
+        <mesh ref={innerRingRef} position={[0, 0, 0]}>
+          <torusGeometry args={[1.35, 0.025, 12, 60]} />
           <meshStandardMaterial
             color="#00E676"
-            roughness={0.2}
+            roughness={0.3}
             metalness={0.8}
             emissive="#00E676"
             emissiveIntensity={0.3}
@@ -120,7 +143,7 @@ export const TechTool3D: React.FC<TechTool3DProps> = ({ className = '' }) => {
         <directionalLight position={[-5, -5, -2]} intensity={0.9} color="#00E676" />
         <pointLight position={[0, 0, 3]} intensity={1.2} color="#00E676" />
 
-        <ScrewdriverMesh />
+        <GearMesh />
       </Canvas>
     </div>
   );
