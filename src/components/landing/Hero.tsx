@@ -12,6 +12,7 @@ import {
 import { Button } from '../ui/Button';
 import { SplitText } from '../ui/SplitText';
 import { Counter } from '../ui/Counter';
+import Lightfall from '../ui/Lightfall';
 import TechTool3D from '../ui/TechTool3D';
 
 interface HeroProps {
@@ -22,9 +23,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
   const [activeMockupTab, setActiveMockupTab] = useState<'faturamento' | 'os' | 'estoque'>('faturamento');
 
   return (
-    <section className="relative pt-24 pb-10 md:pt-36 md:pb-24 overflow-hidden">
+    <section className="relative pt-24 pb-16 md:pt-36 md:pb-28 overflow-hidden bg-black">
+      {/* Lightfall Animated Background Effect */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
+        <Lightfall
+          colors={['#00E676', '#00C853', '#009944']}
+          backgroundColor="#000000"
+          speed={0.6}
+          streakCount={4}
+          streakWidth={1.2}
+          streakLength={1.2}
+          glow={1.2}
+          density={0.7}
+          twinkle={0.8}
+          zoom={2.5}
+          backgroundGlow={0.6}
+          opacity={0.8}
+          mouseInteraction={true}
+          mouseStrength={0.5}
+          mouseRadius={0.8}
+        />
+      </div>
+
       {/* Subtle Background Glow Effect */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#00E676]/10 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#00E676]/10 blur-[140px] pointer-events-none rounded-full z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -219,6 +241,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
           </div>
         </div>
       </div>
+
+      {/* Bottom Shadow Fade Gradient to prevent section break */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-44 bg-gradient-to-b from-transparent via-black/70 to-[#0A0C14] pointer-events-none z-20" />
     </section>
   );
 };
+
