@@ -39,7 +39,7 @@ export const ProblemSection: React.FC = () => {
 
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-white border-y border-zinc-200 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-8">
         
         {/* Header Centralizado com SplitText */}
         <div className="max-w-xl mx-auto space-y-2 text-center">
