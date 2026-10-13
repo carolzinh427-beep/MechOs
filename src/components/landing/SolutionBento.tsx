@@ -10,6 +10,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { Card } from '../ui/Card';
+import SplitText from '../ui/SplitText';
 
 export const SolutionBento: React.FC = () => {
   const modules = [
@@ -59,11 +60,13 @@ export const SolutionBento: React.FC = () => {
     <section id="recursos" className="py-8 sm:py-12 md:py-16 bg-white border-y border-zinc-200 relative">
       <div className="max-w-6xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 text-center">
         
-        {/* Header Centralizado com subtítulo contido na margem do título */}
+        {/* Header Centralizado com SplitText e subtítulo contido na margem do título */}
         <div className="max-w-xl mx-auto space-y-2 mb-6 sm:mb-8 text-center">
-          <h2 className="text-xl xs:text-2xl sm:text-4xl font-black text-zinc-950 tracking-tight font-steel uppercase text-center">
-            Tudo o que sua empresa precisa <span className="text-[#00E676]">em um só lugar</span>
-          </h2>
+          <SplitText
+            tag="h2"
+            text="Tudo o que sua empresa precisa em um só lugar"
+            className="text-xl xs:text-2xl sm:text-4xl font-black text-zinc-950 tracking-tight font-steel uppercase text-center"
+          />
           <p className="text-xs sm:text-sm text-zinc-600 font-medium text-center">
             A plataforma MechOS conecta a recepção ao financeiro com máxima agilidade
           </p>

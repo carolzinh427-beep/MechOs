@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Check, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import SplitText from '../ui/SplitText';
 
 export const Comparison: React.FC = () => {
   const comparisonItems = [
@@ -33,11 +34,13 @@ export const Comparison: React.FC = () => {
     <section className="py-8 sm:py-12 md:py-16 bg-white border-y border-zinc-200 relative">
       <div className="max-w-5xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 text-center">
         
-        {/* Header Centralizado com subtítulo na margem do título */}
+        {/* Header Centralizado com SplitText e subtítulo na margem do título */}
         <div className="max-w-xl mx-auto space-y-2 mb-6 sm:mb-8 text-center">
-          <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-black text-zinc-950 tracking-tight font-steel uppercase text-center">
-            Por que migrar para o <span className="text-[#00E676]">MechOS</span>
-          </h2>
+          <SplitText
+            tag="h2"
+            text="Por que migrar para o MechOS"
+            className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-black text-zinc-950 tracking-tight font-steel uppercase text-center"
+          />
           <p className="text-xs sm:text-sm text-zinc-600 font-medium text-center">
             Compare a gestão tradicional com a eficiência e velocidade da nossa plataforma
           </p>

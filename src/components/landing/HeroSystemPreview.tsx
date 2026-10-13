@@ -8,6 +8,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { Button } from '../ui/Button';
+import SplitText from '../ui/SplitText';
 
 interface HeroSystemPreviewProps {
   onOpenTrial: () => void;
@@ -21,13 +22,15 @@ export const HeroSystemPreview: React.FC<HeroSystemPreviewProps> = ({ onOpenTria
 
       <div className="max-w-6xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header com o restante das informações da Hero */}
+        {/* Section Header com SplitText */}
         <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3.5 mb-6 sm:mb-9">
-          <h2 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight font-steel uppercase">
-            A solução completa para sua empresa <span className="text-[#00E676]">crescer com organização</span>
-          </h2>
+          <SplitText
+            tag="h2"
+            text="A solução completa para sua empresa crescer com organização"
+            className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight font-steel uppercase text-center"
+          />
           <p className="text-xs sm:text-base text-zinc-300 font-medium max-w-2xl mx-auto leading-relaxed">
-            OS, estoque, financeiro, CRM, faturamento, clientes, veículos e Inteligência Artificial reunidos em um único sistema de alta performance.
+            OS estoque financeiro CRM faturamento clientes veículos e Inteligência Artificial reunidos em um único sistema de alta performance
           </p>
 
           {/* Botões de Ação CTAs */}

@@ -6,7 +6,7 @@ import { MechBrandLogo } from '../ui/MechBrandLogo';
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#05060A] border-t border-[#242838] py-6 sm:py-8 text-zinc-400 text-xs relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-[1.5cm] sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6 border-b border-[#242838]/60">
           
           {/* Brand & Contact */}

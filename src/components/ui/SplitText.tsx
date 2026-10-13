@@ -1,42 +1,46 @@
-import React, { useRef, useEffect, useState, useMemo } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText as GSAPSplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
+import './SplitText.css';
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
 export interface SplitTextProps {
-  text: string;
+  text?: string;
+  children?: React.ReactNode;
   className?: string;
   delay?: number;
   duration?: number;
   ease?: string;
-  splitType?: 'chars' | 'words' | 'lines' | 'words, chars';
-  from?: gsap.TweenVars;
-  to?: gsap.TweenVars;
+  splitType?: string;
+  from?: Record<string, any>;
+  to?: Record<string, any>;
   threshold?: number;
   rootMargin?: string;
-  textAlign?: 'left' | 'center' | 'right' | 'justify' | 'inherit';
-  tag?: keyof React.JSX.IntrinsicElements;
+  textAlign?: 'left' | 'center' | 'right' | 'justify';
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
   onLetterAnimationComplete?: () => void;
 }
 
 export const SplitText: React.FC<SplitTextProps> = ({
   text,
+  children,
   className = '',
-  delay = 50,
-  duration = 1.25,
+  delay = 35,
+  duration = 0.8,
   ease = 'power3.out',
-  splitType = 'chars',
-  from = { opacity: 0, y: 40 },
+  splitType = 'words, chars',
+  from = { opacity: 0, y: 30 },
   to = { opacity: 1, y: 0 },
-  threshold = 0.1,
-  rootMargin = '-100px',
-  textAlign = 'inherit',
+  threshold = 0.05,
+  rootMargin = '-20px',
+  textAlign = 'center',
   tag = 'p',
   onLetterAnimationComplete
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const animationCompletedRef = useRef(false);
   const onCompleteRef = useRef(onLetterAnimationComplete);
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -46,41 +50,37 @@ export const SplitText: React.FC<SplitTextProps> = ({
   }, [onLetterAnimationComplete]);
 
   useEffect(() => {
-    if (document.fonts && document.fonts.status === 'loaded') {
-      setFontsLoaded(true);
-    } else if (document.fonts) {
-      document.fonts.ready.then(() => {
+    if (typeof document !== 'undefined' && document.fonts) {
+      if (document.fonts.status === 'loaded') {
         setFontsLoaded(true);
-      });
+      } else {
+        document.fonts.ready.then(() => {
+          setFontsLoaded(true);
+        }).catch(() => {
+          setFontsLoaded(true);
+        });
+      }
     } else {
       setFontsLoaded(true);
     }
   }, []);
 
-  const words = useMemo(() => {
-    if (!text) return [];
-    return text.split(' ');
-  }, [text]);
-
   useGSAP(
     () => {
-      if (!ref.current || !text || !fontsLoaded) return;
+      if (!ref.current || (!text && !children) || !fontsLoaded) return;
       if (animationCompletedRef.current) return;
+      const el = ref.current as any;
 
-      const el = ref.current;
-      let targets: Element[] = [];
-
-      if (splitType.includes('chars')) {
-        targets = Array.from(el.querySelectorAll('.split-char'));
-      } else if (splitType.includes('words')) {
-        targets = Array.from(el.querySelectorAll('.split-word'));
-      } else {
-        targets = Array.from(el.querySelectorAll('.split-word, .split-char'));
+      if (el._rbsplitInstance) {
+        try {
+          el._rbsplitInstance.revert();
+        } catch (_) {
+          /* noop */
+        }
+        el._rbsplitInstance = null;
       }
 
-      if (targets.length === 0) return;
-
-      const startPct = (1 - threshold) * 100;
+      const startPct = Math.max(10, (1 - threshold) * 100);
       const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
       const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
       const marginUnit = marginMatch ? marginMatch[2] || 'px' : 'px';
@@ -92,35 +92,69 @@ export const SplitText: React.FC<SplitTextProps> = ({
             : `+=${marginValue}${marginUnit}`;
       const start = `top ${startPct}%${sign}`;
 
-      gsap.fromTo(
-        targets,
-        { ...from },
-        {
-          ...to,
-          duration,
-          ease,
-          stagger: delay / 1000,
-          scrollTrigger: {
-            trigger: el,
-            start,
-            once: true,
-            fastScrollEnd: true,
-            anticipatePin: 0.4
-          },
-          onComplete: () => {
-            animationCompletedRef.current = true;
-            gsap.set(targets, { clearProps: 'transform,willChange' });
-            onCompleteRef.current?.();
-          },
-          willChange: 'transform, opacity',
-          force3D: true
-        }
-      );
+      let targets: any;
+      const assignTargets = (self: any) => {
+        if (splitType.includes('chars') && self.chars?.length) targets = self.chars;
+        if (!targets && splitType.includes('words') && self.words?.length) targets = self.words;
+        if (!targets && splitType.includes('lines') && self.lines?.length) targets = self.lines;
+        if (!targets) targets = self.chars || self.words || self.lines;
+      };
+
+      try {
+        const splitInstance = new (GSAPSplitText as any)(el, {
+          type: splitType,
+          smartWrap: true,
+          autoSplit: splitType === 'lines',
+          linesClass: 'split-line',
+          wordsClass: 'split-word',
+          charsClass: 'split-char',
+          reduceWhiteSpace: false,
+          onSplit: (self: any) => {
+            assignTargets(self);
+            if (!targets || targets.length === 0) return;
+            const tween = gsap.fromTo(
+              targets,
+              { ...from },
+              {
+                ...to,
+                duration,
+                ease,
+                stagger: delay / 1000,
+                scrollTrigger: {
+                  trigger: el,
+                  start,
+                  once: true,
+                  fastScrollEnd: true,
+                  anticipatePin: 0.4
+                },
+                onComplete: () => {
+                  animationCompletedRef.current = true;
+                  onCompleteRef.current?.();
+                },
+                willChange: 'transform, opacity',
+                force3D: true
+              }
+            );
+            return tween;
+          }
+        });
+
+        el._rbsplitInstance = splitInstance;
+      } catch (err) {
+        // Fallback gracefully to showing text if splitting encounters special elements
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.4 });
+      }
 
       return () => {
-        ScrollTrigger.getAll().forEach((st: any) => {
+        ScrollTrigger.getAll().forEach((st) => {
           if (st.trigger === el) st.kill();
         });
+        try {
+          el._rbsplitInstance?.revert();
+        } catch (_) {
+          /* noop */
+        }
+        el._rbsplitInstance = null;
       };
     },
     {
@@ -130,8 +164,6 @@ export const SplitText: React.FC<SplitTextProps> = ({
         duration,
         ease,
         splitType,
-        JSON.stringify(from),
-        JSON.stringify(to),
         threshold,
         rootMargin,
         fontsLoaded
@@ -146,40 +178,14 @@ export const SplitText: React.FC<SplitTextProps> = ({
     <Tag
       ref={ref}
       style={{
-        textAlign: textAlign !== 'inherit' ? textAlign : undefined,
-        overflow: 'hidden',
-        display: 'block',
+        textAlign,
         whiteSpace: 'normal',
         wordWrap: 'break-word',
         willChange: 'transform, opacity'
       }}
       className={`split-parent ${className}`}
     >
-      {words.map((word, wordIndex) => (
-        <span
-          key={`word-${wordIndex}`}
-          className="split-word inline-block whitespace-nowrap align-bottom"
-          style={{
-            marginRight: wordIndex < words.length - 1 ? '0.25em' : '0',
-            verticalAlign: 'bottom'
-          }}
-        >
-          {splitType.includes('chars')
-            ? word.split('').map((char, charIndex) => (
-                <span
-                  key={`char-${wordIndex}-${charIndex}`}
-                  className="split-char inline-block align-bottom"
-                  style={{
-                    willChange: 'transform, opacity',
-                    verticalAlign: 'bottom'
-                  }}
-                >
-                  {char}
-                </span>
-              ))
-            : word}
-        </span>
-      ))}
+      {text || children}
     </Tag>
   );
 };

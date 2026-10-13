@@ -1,5 +1,6 @@
 import React from 'react';
 import { MechBrandLogo } from '../ui/MechBrandLogo';
+import SplitText from '../ui/SplitText';
 
 interface HeroProps {
   onOpenTrial?: () => void;
@@ -18,14 +19,18 @@ export const Hero: React.FC<HeroProps> = () => {
             <MechBrandLogo className="h-24 xs:h-28 sm:h-36 md:h-44 w-auto" />
           </div>
 
-          {/* Frase Hero com Fonte STEEL metálica sem cortes e sem ponto final */}
+          {/* Frase Hero com SplitText e Fonte STEEL metálica sem cortes e sem ponto final */}
           <div className="overflow-visible w-full">
-            <h1 className="font-steel steel-metallic-text text-lg xs:text-xl sm:text-3xl md:text-4xl tracking-tight leading-tight uppercase break-words max-w-2xl mx-auto">
-              Tenha o controle completo da sua operação automotiva
-            </h1>
+            <SplitText
+              tag="h1"
+              text="Tenha o controle completo da sua operação automotiva"
+              className="font-steel steel-metallic-text text-lg xs:text-xl sm:text-3xl md:text-4xl tracking-tight leading-tight uppercase break-words max-w-2xl mx-auto text-center"
+            />
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+export default Hero;
