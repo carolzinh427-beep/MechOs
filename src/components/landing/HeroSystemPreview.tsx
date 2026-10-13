@@ -23,9 +23,6 @@ export const HeroSystemPreview: React.FC<HeroSystemPreviewProps> = ({ onOpenTria
         
         {/* Section Header com o restante das informações da Hero */}
         <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3.5 mb-6 sm:mb-9">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00E676]/10 text-[#00E676] text-[10px] sm:text-xs font-bold border border-[#00E676]/30 uppercase tracking-wider font-steel">
-            Painel Geral & Controle Operacional
-          </span>
           <h2 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight font-steel uppercase">
             A solução completa para sua empresa <span className="text-[#00E676]">crescer com organização</span>
           </h2>
