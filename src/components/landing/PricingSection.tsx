@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
-import { Check, ArrowRight, Wrench, Zap, Crown, Sparkles, MessageCircle } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { Button } from '../ui/Button';
-import Dock, { DockItemData } from '../ui/Dock';
 import SpotlightCard from '../ui/SpotlightCard';
 
 interface PricingSectionProps {
@@ -10,11 +9,6 @@ interface PricingSectionProps {
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const cardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
-
-  const scrollToPlan = (index: number) => {
-    cardRefs[index]?.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  };
 
   const plans = [
     {
@@ -74,56 +68,16 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
     }
   ];
 
-  // React Bits Dock Items configuration
-  const dockItems: DockItemData[] = [
-    {
-      icon: <Wrench className="w-5 h-5 text-emerald-400" />,
-      label: 'Plano Essencial',
-      onClick: () => scrollToPlan(0)
-    },
-    {
-      icon: <Zap className="w-5 h-5 text-amber-400" />,
-      label: 'Plano Profissional',
-      onClick: () => scrollToPlan(1)
-    },
-    {
-      icon: <Crown className="w-5 h-5 text-[#00E676]" />,
-      label: 'Plano Premium',
-      onClick: () => scrollToPlan(2)
-    },
-    {
-      icon: <Sparkles className="w-5 h-5 text-emerald-400" />,
-      label: 'Teste Grátis',
-      onClick: onOpenTrial
-    },
-    {
-      icon: <MessageCircle className="w-5 h-5 text-[#25D366]" />,
-      label: 'Dúvidas WhatsApp',
-      onClick: () => window.open('https://wa.me/5561985890417?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20do%20MechOS.', '_blank')
-    }
-  ];
-
   return (
     <section id="planos" className="py-6 sm:py-8 md:py-12 bg-[#07080C] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-5">
+        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-2.5 mb-5 sm:mb-8">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight font-steel uppercase">
             Comece com o plano certo para <span className="text-[#00E676]">sua empresa</span>
           </h2>
           <p className="text-xs sm:text-base text-zinc-400 font-medium">
             Todos os planos possuem <strong className="text-[#00E676]">3 dias de teste grátis</strong> com acesso imediato.
           </p>
-        </div>
-
-        {/* React Bits Interactive Dock Component Navigation */}
-        <div className="mb-4 sm:mb-6 flex justify-center">
-          <Dock
-            items={dockItems}
-            panelHeight={54}
-            baseItemSize={40}
-            magnification={56}
-            distance={140}
-          />
         </div>
 
         {/* Indicador de rolagem horizontal para mobile com bom espaçamento */}
@@ -137,7 +91,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
           className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-6 pb-3 sm:pb-5 px-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 items-stretch [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pt-1"
         >
           {plans.map((p, idx) => (
-            <div key={idx} ref={cardRefs[idx]} className="shrink-0 snap-center w-[85vw] max-w-[310px] sm:w-[340px] lg:w-auto flex">
+            <div key={idx} className="shrink-0 snap-center w-[85vw] max-w-[310px] sm:w-[340px] lg:w-auto flex">
               <SpotlightCard
                 spotlightColor={p.popular ? 'rgba(0, 230, 118, 0.25)' : 'rgba(0, 230, 118, 0.15)'}
                 className={`w-full relative rounded-2xl sm:rounded-3xl p-4 sm:p-7 flex flex-col justify-between transition-all duration-300 ${

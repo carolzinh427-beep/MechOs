@@ -15,7 +15,7 @@ interface HeroSystemPreviewProps {
 
 export const HeroSystemPreview: React.FC<HeroSystemPreviewProps> = ({ onOpenTrial }) => {
   return (
-    <section className="py-8 sm:py-12 bg-[#07080C] relative overflow-hidden border-b border-[#242838]/60">
+    <section className="hidden md:block py-8 sm:py-12 bg-[#07080C] relative overflow-hidden border-b border-[#242838]/60">
       {/* Background glow behind preview */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-[#00E676]/10 blur-[130px] pointer-events-none rounded-full z-0" />
 
