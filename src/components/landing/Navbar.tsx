@@ -57,17 +57,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrial }) => {
             <span className="hidden xs:inline sm:inline">Dúvidas</span>
           </a>
 
-          {/* Botão Entrar */}
-          <a
-            href="https://mech.zyphorlabscorporation.online/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="outline" size="sm" className="text-[11px] sm:text-xs px-2.5 py-1.5 sm:px-3.5 sm:py-2">
-              Entrar
-            </Button>
-          </a>
-
           {/* Botão Começar Teste Agora */}
           <Button
             variant="electric"

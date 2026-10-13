@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from './components/landing/Navbar';
 import { Hero } from './components/landing/Hero';
+import { HeroSystemPreview } from './components/landing/HeroSystemPreview';
 import { SegmentTicker } from './components/landing/SegmentTicker';
 import { ProblemSection } from './components/landing/ProblemSection';
 import { SolutionBento } from './components/landing/SolutionBento';
@@ -30,18 +31,46 @@ export function App() {
 
       {/* Main Landing Sections */}
       <main>
+        {/* 1. Hero Compacto & Impactante (Sem animação de fundo pesada, sem corte de título) */}
         <Hero onOpenTrial={handleGoToSystem} />
+
+        {/* 2. Seção do Mockup da Dashboard do Sistema (Inserida logo após a Hero) */}
+        <HeroSystemPreview onOpenTrial={handleGoToSystem} />
+
+        {/* 3. Ticker dos Segmentos (Fundo Branco) */}
         <SegmentTicker />
+
+        {/* 4. Dores e Problemas (Fundo Preto) */}
         <ProblemSection />
+
+        {/* 5. Solução Bento Grid (Fundo Branco) */}
         <SolutionBento />
+
+        {/* 6. Assistente de IA (Fundo Preto) */}
         <AISection onOpenTrial={handleGoToSystem} />
+
+        {/* 7. Dashboard e Métricas (Fundo Branco) */}
         <DashboardSection />
+
+        {/* 8. Histórico por Placa (Fundo Preto) */}
         <VehicleHistory onOpenTrial={handleGoToSystem} />
+
+        {/* 9. Como Funciona (Fundo Branco) */}
         <HowItWorks onOpenTrial={handleGoToSystem} />
+
+        {/* 10. Planos e Preços (Fundo Preto) */}
         <PricingSection onOpenTrial={handleGoToSystem} />
+
+        {/* 11. Comparativo (Fundo Branco) */}
         <Comparison />
+
+        {/* 12. Depoimentos (Fundo Preto) */}
         <Testimonials />
+
+        {/* 13. Perguntas Frequentes (Fundo Branco) */}
         <FAQSection />
+
+        {/* 14. Chamada Final CTA (Fundo Preto) */}
         <FinalCTA onOpenTrial={handleGoToSystem} />
       </main>
 
