@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, Wrench, MessageCircle, Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import PillNav from '../ui/PillNav';
+import { MechBrandLogo } from '../ui/MechBrandLogo';
 
 interface NavbarProps {
   onOpenTrial: () => void;
@@ -22,21 +23,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrial }) => {
     <header className="fixed top-0 left-0 right-0 z-40 glass-header border-b border-[#242838]/60 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-1.5">
         
-        {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-1.5 sm:gap-2 group shrink-0">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#141722] border border-[#00E676]/40 flex items-center justify-center text-[#00E676] group-hover:border-[#00E676] glow-electric-subtle transition-all">
-            <Wrench className="w-4 h-4 sm:w-5 sm:h-5" />
-          </div>
-          <span className="text-lg sm:text-2xl font-black text-white tracking-tight flex items-center gap-1">
-            Mech<span className="text-[#00E676]">OS</span>
-            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#00E676] animate-pulse"></span>
-          </span>
+        {/* Brand Logo Oficial MechOS do Anexo */}
+        <a href="#" className="flex items-center group shrink-0" title="MechOS Início">
+          <MechBrandLogo size="md" className="h-7 sm:h-8" />
         </a>
 
         {/* Desktop Central PillNav */}
         <div className="hidden lg:block">
           <PillNav
-            logoElement={<Wrench className="w-4 h-4 text-[#00E676]" />}
+            logoElement={<div className="w-2.5 h-2.5 rounded-full bg-[#00E676] animate-pulse" />}
             logoAlt="MechOS Logo"
             items={navItems}
             activeHref="#"

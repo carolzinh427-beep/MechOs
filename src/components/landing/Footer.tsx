@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wrench, ShieldCheck, Mail, Lock } from 'lucide-react';
 import CircularText from '../ui/CircularText';
+import { MechBrandLogo } from '../ui/MechBrandLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,13 +11,8 @@ export const Footer: React.FC = () => {
           
           {/* Brand & Contact */}
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-            <a href="#" className="flex items-center gap-2 group shrink-0">
-              <div className="w-8 h-8 rounded-lg bg-[#141722] border border-[#00E676]/40 flex items-center justify-center text-[#00E676]">
-                <Wrench className="w-4 h-4" />
-              </div>
-              <span className="text-lg font-black text-white tracking-tight">
-                Mech<span className="text-[#00E676]">OS</span>
-              </span>
+            <a href="#" className="flex items-center group shrink-0" title="MechOS Início">
+              <MechBrandLogo size="md" className="h-7 sm:h-8" />
             </a>
 
             <div className="h-4 w-[1px] bg-zinc-800 hidden sm:block" />

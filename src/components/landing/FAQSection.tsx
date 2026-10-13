@@ -33,17 +33,17 @@ export const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-3 sm:py-5 bg-[#0A0C14] relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-4 sm:py-6 bg-white border-y border-zinc-200 relative">
+      <div className="max-w-4xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Compact Trigger Button to keep section hidden and space-efficient */}
         <div className="flex justify-center">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2.5 px-4 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-[#141722] border border-[#242838] hover:border-[#00E676]/60 text-white font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95"
+            className="inline-flex items-center gap-2.5 px-4 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-slate-50 border border-zinc-300 hover:border-[#00E676] text-zinc-900 font-bold text-xs sm:text-sm transition-all shadow-sm active:scale-95 cursor-pointer"
           >
             <HelpCircle className="w-4 h-4 text-[#00E676]" />
-            <span>Perguntas Frequentes (FAQ)</span>
+            <span className="font-steel tracking-wide">Perguntas Frequentes (FAQ)</span>
             <ChevronDown className={`w-4 h-4 text-[#00E676] transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
           </button>
         </div>
@@ -51,12 +51,12 @@ export const FAQSection: React.FC = () => {
         {/* Collapsible FAQ Content */}
         {isExpanded && (
           <div className="mt-6 space-y-3 animate-fadeIn">
-            <div className="text-center space-y-1 mb-6">
-              <h2 className="text-xl sm:text-3xl font-black text-white tracking-tight">
+            <div className="text-center space-y-1 mb-5">
+              <h2 className="text-xl sm:text-3xl font-black text-zinc-950 tracking-tight font-steel uppercase">
                 Perguntas <span className="text-[#00E676]">Frequentes</span>
               </h2>
-              <p className="text-xs text-zinc-400">
-                Tire suas dúvidas sobre o MechOS.
+              <p className="text-xs text-zinc-600 font-medium">
+                Tire suas dúvidas sobre o funcionamento do MechOS.
               </p>
             </div>
 
@@ -64,11 +64,11 @@ export const FAQSection: React.FC = () => {
               {faqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#141722] border border-[#242838] rounded-xl overflow-hidden transition-all"
+                  className="bg-slate-50 border border-zinc-200 rounded-xl overflow-hidden transition-all shadow-sm hover:border-[#00E676]/60"
                 >
                   <button
                     onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                    className="w-full p-3.5 sm:p-5 text-left flex items-center justify-between gap-3 font-bold text-white text-xs sm:text-sm focus:outline-none"
+                    className="w-full p-3.5 sm:p-4 text-left flex items-center justify-between gap-3 font-bold text-zinc-900 text-xs sm:text-sm focus:outline-none cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
@@ -79,7 +79,7 @@ export const FAQSection: React.FC = () => {
                   </button>
 
                   {openIndex === idx && (
-                    <div className="px-3.5 pb-3.5 sm:px-5 sm:pb-5 text-xs text-zinc-400 leading-relaxed border-t border-[#242838]/60 pt-2.5">
+                    <div className="px-3.5 pb-3.5 sm:px-4 sm:pb-4 text-xs text-zinc-600 leading-relaxed border-t border-zinc-200 pt-2.5 font-medium">
                       {faq.a}
                     </div>
                   )}

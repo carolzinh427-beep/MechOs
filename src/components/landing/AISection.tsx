@@ -33,7 +33,7 @@ export const AISection: React.FC<AISectionProps> = ({ onOpenTrial }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-10 items-center">
           {/* Left Text Column */}
           <div className="lg:col-span-5 space-y-3 sm:space-y-4">
-            <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight leading-tight font-steel uppercase">
               Sua empresa ganhou um <span className="text-[#00E676]">novo assistente</span>
             </h2>
 

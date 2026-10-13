@@ -22,9 +22,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
   const [activeMockupTab, setActiveMockupTab] = useState<'faturamento' | 'os' | 'estoque'>('faturamento');
 
   return (
-    <section className="relative pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-28 md:pb-16 overflow-hidden bg-black">
+    <section className="relative pt-12 pb-4 sm:pt-16 sm:pb-8 md:pt-20 md:pb-12 overflow-hidden bg-black">
       {/* Lightfall Animated Background Effect */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
         <Lightfall
           colors={['#00E676', '#00C853', '#009944']}
           backgroundColor="#000000"
@@ -45,41 +45,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
       </div>
 
       {/* Subtle Background Glow Effect */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#00E676]/10 blur-[130px] pointer-events-none rounded-full z-0" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[220px] bg-[#00E676]/10 blur-[120px] pointer-events-none rounded-full z-0" />
 
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Header Row: Centered layout without 3D effect */}
-        <div className="text-center space-y-3 sm:space-y-4 md:space-y-5 max-w-4xl mx-auto">
-          {/* Main Animated Headline using React Bits SplitText */}
+        {/* Top Header Row: Centered layout with STEEL font */}
+        <div className="text-center space-y-2 sm:space-y-3.5 max-w-4xl mx-auto">
+          {/* Main Animated Headline using STEEL Industrial Font */}
           <div>
-            <SplitText
-              tag="h1"
-              text="Tenha o controle completo da sua operação automotiva"
-              className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]"
-              delay={35}
-              duration={0.8}
-              ease="power3.out"
-              splitType="words, chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-            />
+            <h1 className="font-steel steel-metallic-text text-xl xs:text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.08] filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] uppercase">
+              Tenha o controle completo da sua operação automotiva
+            </h1>
           </div>
 
           {/* Subheadline */}
-          <p className="text-xs sm:text-base md:text-lg text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[11px] xs:text-xs sm:text-sm md:text-base text-zinc-300 font-medium max-w-2xl mx-auto leading-snug sm:leading-relaxed">
             OS, estoque, financeiro, CRM, faturamento, clientes, veículos e Inteligência Artificial reunidos em um único sistema de alta performance.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-1">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-0.5">
             <Button
               variant="electric"
-              size="lg"
+              size="sm"
               onClick={onOpenTrial}
-              icon={<ArrowRight className="w-5 h-5" />}
-              className="w-full sm:w-auto"
+              icon={<ArrowRight className="w-4 h-4" />}
+              className="w-full sm:w-auto text-xs py-2 sm:py-2.5"
             >
               Começar teste agora
             </Button>
@@ -89,15 +80,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto"
             >
-              <Button variant="outline" size="lg" icon={<MessageCircle className="w-4 h-4 text-[#25D366]" />} className="w-full">
+              <Button variant="outline" size="sm" icon={<MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />} className="w-full text-xs py-2 sm:py-2.5">
                 Tirar dúvidas no WhatsApp
               </Button>
             </a>
           </div>
         </div>
 
-        {/* Mockup Visual do Sistema (Estilo Janela de Computador Adaptada para Mobile) */}
-        <div className="mt-5 sm:mt-8 md:mt-12 relative max-w-5xl mx-auto">
+        {/* Mockup Visual do Sistema Compacto no Mobile */}
+        <div className="mt-3.5 sm:mt-6 md:mt-8 relative max-w-5xl mx-auto">
           {/* Decorative Glow Ring */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00E676]/40 via-emerald-500/20 to-[#00E676]/40 rounded-2xl md:rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000"></div>
 

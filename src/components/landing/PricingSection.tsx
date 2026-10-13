@@ -107,7 +107,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
     <section id="planos" className="py-6 sm:py-8 md:py-12 bg-[#07080C] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-5">
-          <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight font-steel uppercase">
             Comece com o plano certo para <span className="text-[#00E676]">sua empresa</span>
           </h2>
           <p className="text-xs sm:text-base text-zinc-400 font-medium">

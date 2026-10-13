@@ -72,6 +72,33 @@
   color: #00E676;
 }
 
+/* Steel Industrial Typography from reference image */
+.font-steel {
+  font-family: 'Chakra Petch', 'Orbitron', 'Inter', system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.steel-metallic-text {
+  font-family: 'Chakra Petch', 'Orbitron', 'Inter', system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 25%, #94A3B8 52%, #CBD5E1 70%, #64748B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
+}
+
+.steel-subheading {
+  font-family: 'Chakra Petch', 'Orbitron', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .glass-header {
   background: rgba(7, 8, 12, 0.92);
   backdrop-filter: blur(16px);

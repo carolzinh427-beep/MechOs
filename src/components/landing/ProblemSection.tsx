@@ -48,7 +48,7 @@ export const ProblemSection: React.FC = () => {
     <section className="py-6 sm:py-8 md:py-12 bg-[#07080C] relative">
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
-          <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight font-steel uppercase">
             Sua empresa ainda depende de papel, planilhas e WhatsApp?
           </h2>
           <p className="text-xs sm:text-base text-zinc-400">
