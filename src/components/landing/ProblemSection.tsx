@@ -1,38 +1,31 @@
 import React from 'react';
-import { ArrowDown } from 'lucide-react';
-import AccordionGallery from '../ui/AccordionGallery';
+import { ArrowDown, AlertTriangle } from 'lucide-react';
 import SplitText from '../ui/SplitText';
 
 export const ProblemSection: React.FC = () => {
-  const problemPanels = [
+  const problems = [
     {
-      image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=900&q=80',
-      label: 'Orçamentos perdidos',
+      title: 'Orçamentos perdidos',
       description: 'Cotações enviadas por texto no WhatsApp que caem no esquecimento e viram vendas perdidas'
     },
     {
-      image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=900&q=80',
-      label: 'OS desorganizadas',
+      title: 'OS desorganizadas',
       description: 'Blocos de papel e pranchas rasgadas que dificultam saber o status exato de cada serviço'
     },
     {
-      image: 'https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=900&q=80',
-      label: 'Estoque sem controle',
+      title: 'Estoque sem controle',
       description: 'Peças faltando na hora do serviço ou acumuladas gerando prejuízo no caixa'
     },
     {
-      image: 'https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=900&q=80',
-      label: 'Clientes esquecidos',
+      title: 'Clientes esquecidos',
       description: 'Sem lembretes automáticos para revisões preventivas trocas de óleo e retornos'
     },
     {
-      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=80',
-      label: 'Contas espalhadas',
+      title: 'Contas espalhadas',
       description: 'Despesas anotadas em cadernos e falta de clareza sobre o lucro real do mês'
     },
     {
-      image: 'https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=80',
-      label: 'Falta de histórico',
+      title: 'Falta de histórico',
       description: 'Não saber quais peças foram trocadas anteriormente no veículo do cliente'
     }
   ];
@@ -53,18 +46,24 @@ export const ProblemSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Galeria AccordionGallery interativa com os 6 problemas */}
-        <div className="w-full text-left">
-          <AccordionGallery
-            items={problemPanels}
-            defaultIndex={0}
-            expandRatio={0.46}
-            height={430}
-            accentColor="#00E676"
-            overlayColor="#07080C"
-            radius={18}
-            trigger="hover"
-          />
+        {/* Frases dos problemas apresentadas de forma limpa, direta e sem efeitos pesados */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 text-left max-w-5xl mx-auto">
+          {problems.map((item, index) => (
+            <div
+              key={index}
+              className="p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-zinc-200 bg-zinc-50/70 hover:border-zinc-300 transition-colors space-y-2"
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                <h3 className="text-sm sm:text-base font-bold text-zinc-950 font-steel uppercase tracking-tight">
+                  {item.title}
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Transition callout */}

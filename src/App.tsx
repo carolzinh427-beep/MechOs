@@ -11,7 +11,6 @@ import { VehicleHistory } from './components/landing/VehicleHistory';
 import { HowItWorks } from './components/landing/HowItWorks';
 import { PricingSection } from './components/landing/PricingSection';
 import { Comparison } from './components/landing/Comparison';
-import { Testimonials } from './components/landing/Testimonials';
 import { FAQSection } from './components/landing/FAQSection';
 import { FinalCTA } from './components/landing/FinalCTA';
 import { Footer } from './components/landing/Footer';
@@ -34,7 +33,7 @@ export function App() {
         {/* 1. Hero: Logo MechOS centralizado acima da frase (Fundo Preto) */}
         <Hero onOpenTrial={handleGoToSystem} />
 
-        {/* 2. Dores e Problemas - "Sua empresa ainda depende..." (Diretamente após o Hero, Fundo Branco) */}
+        {/* 2. Dores e Problemas - Frases Diretas (Fundo Branco) */}
         <ProblemSection />
 
         {/* 3. Seção à parte: Resto da apresentação, CTAs e Mockup Interativo (Fundo Preto) */}
@@ -43,7 +42,7 @@ export function App() {
         {/* 4. Ticker dos Segmentos Atendidos (Integrado em fundo dark) */}
         <SegmentTicker />
 
-        {/* 5. Solução Bento Grid (Fundo Branco) */}
+        {/* 5. Solução Bento Grid e Galeria Interativa (Fundo Branco) */}
         <SolutionBento />
 
         {/* 6. Assistente de IA (Fundo Preto) */}
@@ -64,13 +63,10 @@ export function App() {
         {/* 11. Comparativo (Fundo Branco) */}
         <Comparison />
 
-        {/* 12. Depoimentos (Fundo Preto) */}
-        <Testimonials />
-
-        {/* 13. Perguntas Frequentes (Fundo Branco) */}
+        {/* 12. Perguntas Frequentes (Fundo Branco) */}
         <FAQSection />
 
-        {/* 14. Chamada Final CTA (Fundo Preto) */}
+        {/* 13. Chamada Final CTA (Fundo Preto) */}
         <FinalCTA onOpenTrial={handleGoToSystem} />
       </main>
 

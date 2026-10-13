@@ -1,6 +1,5 @@
 import React from 'react';
 import { ShieldCheck, Mail, Lock } from 'lucide-react';
-import CircularText from '../ui/CircularText';
 import { MechBrandLogo } from '../ui/MechBrandLogo';
 
 export const Footer: React.FC = () => {
@@ -9,7 +8,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6 border-b border-[#242838]/60">
           
-          {/* Brand & Contact */}
+          {/* Logo e Contato Essencial */}
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <a href="#" className="flex items-center group shrink-0" title="MechOS Início">
               <MechBrandLogo className="h-8 sm:h-9 w-auto" />
@@ -26,18 +25,8 @@ export const Footer: React.FC = () => {
             </a>
           </div>
 
-          {/* CircularText animation */}
-          <div className="shrink-0 my-2 md:my-0 scale-90 sm:scale-100">
-            <CircularText
-              text="MECHOS GESTÃO AUTOMOTIVA "
-              spinDuration={16}
-              onHover="speedUp"
-              className="text-[#00E676]"
-            />
-          </div>
-
-          {/* Quick links & System access */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
+          {/* Links Essenciais de Navegação */}
+          <div className="flex flex-wrap items-center justify-center gap-5 text-xs">
             <a
               href="https://mech.zyphorlabscorporation.online/"
               target="_blank"
@@ -58,7 +47,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom LGPD and Copyright bar */}
+        {/* Rodapé: LGPD e Copyright */}
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-zinc-500 text-center sm:text-left">
           <p>© 2026 MechOS SaaS Automotivo Todos os direitos reservados</p>
           
@@ -67,7 +56,7 @@ export const Footer: React.FC = () => {
               <Lock className="w-3 h-3 text-[#00E676]" /> 
               <span>Conformidade com a <strong className="text-white">LGPD</strong></span>
             </span>
-            <span className="flex items-center gap-1 text-zinc-500 hidden md:inline-flex">
+            <span className="flex items-center gap-1 text-zinc-500 hidden sm:inline-flex">
               <ShieldCheck className="w-3.5 h-3.5 text-[#00E676]" /> Dados encriptados
             </span>
           </div>
