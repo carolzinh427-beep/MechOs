@@ -28,26 +28,26 @@ export const SegmentTicker: React.FC = () => {
   ];
 
   return (
-    <section className="py-10 border-y border-[#242838]/60 bg-[#0A0C14] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 mb-6 text-center">
-        <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest flex items-center justify-center gap-2">
-          <span className="w-8 h-[1px] bg-[#00E676]/40" />
+    <section className="py-4 sm:py-6 border-y border-[#242838]/60 bg-[#0A0C14] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 mb-2.5 sm:mb-4 text-center">
+        <p className="text-[11px] sm:text-xs font-bold text-zinc-400 uppercase tracking-widest flex items-center justify-center gap-2">
+          <span className="w-6 sm:w-8 h-[1px] bg-[#00E676]/40" />
           Uma plataforma desenvolvida para todo o setor automotivo
-          <span className="w-8 h-[1px] bg-[#00E676]/40" />
+          <span className="w-6 sm:w-8 h-[1px] bg-[#00E676]/40" />
         </p>
       </div>
 
       {/* Marquee Wrapper */}
       <div className="relative w-full overflow-hidden flex">
         {/* Gradient Fades on edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0A0C14] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0A0C14] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-[#0A0C14] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-[#0A0C14] to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-marquee flex items-center gap-4">
+        <div className="animate-marquee flex items-center gap-3 sm:gap-4">
           {[...segments, ...segments].map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#141722] border border-[#242838] hover:border-[#00E676]/50 transition-all shrink-0 cursor-default group"
+              className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-[#141722] border border-[#242838] hover:border-[#00E676]/50 transition-all shrink-0 cursor-default group"
             >
               <div className="p-1 rounded-lg bg-[#0F111A] group-hover:scale-110 transition-transform">
                 {item.icon}

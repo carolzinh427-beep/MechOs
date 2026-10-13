@@ -13,9 +13,9 @@ export const Comparison: React.FC = () => {
   ];
 
   return (
-    <section className="py-10 md:py-28 bg-[#0A0C14] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-16">
+    <section className="py-6 sm:py-8 md:py-12 bg-[#0A0C14] relative">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
             Por que migrar do papel para o <span className="text-[#00E676]">MechOS?</span>
           </h2>
@@ -25,7 +25,7 @@ export const Comparison: React.FC = () => {
         </div>
 
         {/* Comparison Table / Box */}
-        <div className="max-w-4xl mx-auto bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-3.5 sm:p-8 overflow-hidden shadow-2xl">
+        <div className="max-w-4xl mx-auto bg-[#141722] border border-[#242838] rounded-2xl sm:rounded-3xl p-3 sm:p-6 overflow-hidden shadow-2xl">
           <div className="grid grid-cols-12 pb-4 border-b border-[#242838] text-xs font-bold uppercase tracking-wider">
             <div className="col-span-6 text-zinc-400">Funcionalidade</div>
             <div className="col-span-3 text-center text-rose-400">Manual</div>

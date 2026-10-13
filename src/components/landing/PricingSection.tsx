@@ -104,37 +104,37 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
   ];
 
   return (
-    <section id="planos" className="py-10 md:py-24 bg-[#07080C] relative overflow-hidden">
+    <section id="planos" className="py-6 sm:py-8 md:py-12 bg-[#07080C] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3 mb-6 md:mb-10">
+        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-2.5 mb-3 sm:mb-5">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
             Comece com o plano certo para <span className="text-[#00E676]">sua empresa</span>
           </h2>
           <p className="text-xs sm:text-base text-zinc-400 font-medium">
-            Todos os planos possuem <strong className="text-[#00E676]">3 dias de teste grátis</strong> sem cartão de crédito.
+            Todos os planos possuem <strong className="text-[#00E676]">3 dias de teste grátis</strong> com acesso imediato.
           </p>
         </div>
 
         {/* React Bits Interactive Dock Component Navigation */}
-        <div className="mb-8 md:mb-12 flex justify-center">
+        <div className="mb-4 sm:mb-6 flex justify-center">
           <Dock
             items={dockItems}
-            panelHeight={58}
-            baseItemSize={44}
-            magnification={60}
-            distance={160}
+            panelHeight={54}
+            baseItemSize={40}
+            magnification={56}
+            distance={140}
           />
         </div>
 
         {/* Indicador de rolagem horizontal para mobile com bom espaçamento */}
-        <div className="flex lg:hidden items-center justify-center gap-1.5 text-[11px] font-bold text-[#00E676] mb-5 animate-pulse">
+        <div className="flex lg:hidden items-center justify-center gap-1.5 text-[10px] font-bold text-[#00E676] mb-3 animate-pulse">
           <span>← Deslize para o lado para ver os planos →</span>
         </div>
 
         {/* Pricing Cards - Side-by-Side Horizontal Scroll no Mobile / Grid 3 Colunas no Desktop */}
         <div
           ref={containerRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-3.5 sm:gap-6 pb-6 px-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 items-stretch [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pt-1"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-6 pb-3 sm:pb-5 px-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 items-stretch [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pt-1"
         >
           {plans.map((p, idx) => (
             <div key={idx} ref={cardRefs[idx]} className="shrink-0 snap-center w-[85vw] max-w-[310px] sm:w-[340px] lg:w-auto flex">

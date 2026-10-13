@@ -45,9 +45,9 @@ export const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-10 md:py-28 bg-[#07080C] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-14">
+    <section className="py-6 sm:py-8 md:py-12 bg-[#07080C] relative">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
             Sua empresa ainda depende de papel, planilhas e WhatsApp?
           </h2>
@@ -57,13 +57,13 @@ export const ProblemSection: React.FC = () => {
         </div>
 
         {/* Problem Grid: 2 columns on mobile for compact view! */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5">
           {problems.map((prob, idx) => (
             <Card
               key={idx}
-              className="bg-[#0F111A] border-rose-500/20 hover:border-rose-500/40 p-3 sm:p-6 space-y-2 rounded-xl sm:rounded-2xl"
+              className="bg-[#0F111A] border-rose-500/20 hover:border-rose-500/40 p-2.5 sm:p-5 space-y-1.5 sm:space-y-2 rounded-xl sm:rounded-2xl"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center">
+              <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center">
                 {prob.icon}
               </div>
               <h3 className="text-xs sm:text-lg font-bold text-white leading-tight">{prob.title}</h3>
@@ -73,11 +73,11 @@ export const ProblemSection: React.FC = () => {
         </div>
 
         {/* Transition callout */}
-        <div className="mt-8 md:mt-16 text-center space-y-2 sm:space-y-4">
-          <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-[#00E676]/10 border border-[#00E676] flex items-center justify-center mx-auto text-[#00E676] animate-bounce">
-            <ArrowDown className="w-4 h-4 sm:w-6 sm:h-6" />
+        <div className="mt-4 sm:mt-6 md:mt-8 text-center space-y-1.5 sm:space-y-3">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#00E676]/10 border border-[#00E676] flex items-center justify-center mx-auto text-[#00E676] animate-bounce">
+            <ArrowDown className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
           </div>
-          <p className="text-lg sm:text-3xl font-black text-[#00E676] tracking-tight">
+          <p className="text-base sm:text-2xl md:text-3xl font-black text-[#00E676] tracking-tight">
             Existe uma forma mais simples
           </p>
         </div>

@@ -16,7 +16,7 @@ export const FAQSection: React.FC = () => {
     },
     {
       q: 'Como funciona o teste grátis de 3 dias?',
-      a: 'Você se cadastra em menos de 1 minuto sem precisar informar cartão de crédito. Durante 3 dias você tem acesso total para testar com sua equipe.'
+      a: 'Você se cadastra em menos de 1 minuto e tem acesso total durante 3 dias para testar todas as funcionalidades com sua equipe.'
     },
     {
       q: 'É fácil emitir Ordens de Serviço (OS)?',
@@ -33,7 +33,7 @@ export const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-4 sm:py-8 bg-[#0A0C14] relative">
+    <section id="faq" className="py-3 sm:py-5 bg-[#0A0C14] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Compact Trigger Button to keep section hidden and space-efficient */}

@@ -20,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrial }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 glass-header border-b border-[#242838]/60 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-1.5">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-1.5">
         
         {/* Brand Logo */}
         <a href="#" className="flex items-center gap-1.5 sm:gap-2 group shrink-0">

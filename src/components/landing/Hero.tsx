@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
   const [activeMockupTab, setActiveMockupTab] = useState<'faturamento' | 'os' | 'estoque'>('faturamento');
 
   return (
-    <section className="relative pt-24 pb-16 md:pt-36 md:pb-28 overflow-hidden bg-black">
+    <section className="relative pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-28 md:pb-16 overflow-hidden bg-black">
       {/* Lightfall Animated Background Effect */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
         <Lightfall
@@ -45,18 +45,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
       </div>
 
       {/* Subtle Background Glow Effect */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#00E676]/10 blur-[140px] pointer-events-none rounded-full z-0" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#00E676]/10 blur-[130px] pointer-events-none rounded-full z-0" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Header Row: Centered layout without 3D effect */}
-        <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto">
+        <div className="text-center space-y-3 sm:space-y-4 md:space-y-5 max-w-4xl mx-auto">
           {/* Main Animated Headline using React Bits SplitText */}
           <div>
             <SplitText
               tag="h1"
               text="Tenha o controle completo da sua operação automotiva"
-              className="text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]"
+              className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]"
               delay={35}
               duration={0.8}
               ease="power3.out"
@@ -68,12 +68,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
           </div>
 
           {/* Subheadline */}
-          <p className="text-xs sm:text-lg text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-base md:text-lg text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed">
             OS, estoque, financeiro, CRM, faturamento, clientes, veículos e Inteligência Artificial reunidos em um único sistema de alta performance.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-1">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-1">
             <Button
               variant="electric"
               size="lg"
@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
         </div>
 
         {/* Mockup Visual do Sistema (Estilo Janela de Computador Adaptada para Mobile) */}
-        <div className="mt-8 md:mt-16 relative max-w-5xl mx-auto">
+        <div className="mt-5 sm:mt-8 md:mt-12 relative max-w-5xl mx-auto">
           {/* Decorative Glow Ring */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00E676]/40 via-emerald-500/20 to-[#00E676]/40 rounded-2xl md:rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000"></div>
 
@@ -220,7 +220,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTrial }) => {
       </div>
 
       {/* Bottom Shadow Fade Gradient to prevent section break */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-44 bg-gradient-to-b from-transparent via-black/70 to-[#0A0C14] pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-28 bg-gradient-to-b from-transparent via-black/70 to-[#0A0C14] pointer-events-none z-20" />
     </section>
   );
 };

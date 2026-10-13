@@ -25,9 +25,9 @@ export const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section className="py-10 md:py-28 bg-[#07080C] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-16">
+    <section className="py-6 sm:py-8 md:py-12 bg-[#07080C] relative">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
             O que dizem os gestores que usam o <span className="text-[#00E676]">MechOS</span>
           </h2>
@@ -37,11 +37,11 @@ export const Testimonials: React.FC = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-6">
           {testimonials.map((t, idx) => (
             <Card
               key={idx}
-              className="flex flex-col justify-between p-4 sm:p-8 bg-[#141722] border-[#242838] hover:border-[#00E676]/50 space-y-4"
+              className="flex flex-col justify-between p-3.5 sm:p-6 bg-[#141722] border-[#242838] hover:border-[#00E676]/50 space-y-3 sm:space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center gap-1 text-[#00E676]">

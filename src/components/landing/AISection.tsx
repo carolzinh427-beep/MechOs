@@ -25,14 +25,14 @@ export const AISection: React.FC<AISectionProps> = ({ onOpenTrial }) => {
   ];
 
   return (
-    <section className="py-10 md:py-28 bg-[#07080C] relative overflow-hidden">
+    <section className="py-6 sm:py-8 md:py-12 bg-[#07080C] relative overflow-hidden">
       {/* Glow background */}
       <div className="absolute top-1/2 right-10 w-[400px] h-[400px] bg-[#00E676]/10 blur-[160px] pointer-events-none rounded-full" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-10 items-center">
           {/* Left Text Column */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+          <div className="lg:col-span-5 space-y-3 sm:space-y-4">
             <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight leading-tight">
               Sua empresa ganhou um <span className="text-[#00E676]">novo assistente</span>
             </h2>

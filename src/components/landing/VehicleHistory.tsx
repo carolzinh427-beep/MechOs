@@ -32,11 +32,11 @@ export const VehicleHistory: React.FC<VehicleHistoryProps> = ({ onOpenTrial }) =
   ];
 
   return (
-    <section className="py-10 md:py-28 bg-[#0A0C14] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+    <section className="py-6 sm:py-8 md:py-12 bg-[#0A0C14] relative">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-10 items-center">
           {/* Left Text Info */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+          <div className="lg:col-span-5 space-y-3 sm:space-y-4">
             <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight leading-tight">
               Cada veículo tem uma história <span className="text-[#00E676]">Sua empresa também precisa conhecê-la</span>
             </h2>

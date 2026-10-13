@@ -14,9 +14,9 @@ export const DashboardSection: React.FC = () => {
   const [period, setPeriod] = useState<'hoje' | 'semana' | 'mes'>('mes');
 
   return (
-    <section id="produto" className="py-10 md:py-28 bg-[#0A0C14] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-14">
+    <section id="produto" className="py-6 sm:py-8 md:py-12 bg-[#0A0C14] relative">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
             Veja sua operação de um jeito <span className="text-[#00E676]">completamente diferente</span>
           </h2>

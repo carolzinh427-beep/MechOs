@@ -41,11 +41,11 @@ export const ModalDemo: React.FC<ModalDemoProps> = ({ isOpen, onClose, selectedP
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-lg bg-[#141722] border border-[#00E676]/40 rounded-3xl p-6 md:p-8 shadow-2xl glow-electric">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-[#141722] border border-[#00E676]/40 rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-2xl glow-electric">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-zinc-400 hover:text-white transition-colors p-1"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 text-zinc-400 hover:text-white transition-colors p-1.5"
         >
           <X className="w-5 h-5" />
         </button>
@@ -60,7 +60,7 @@ export const ModalDemo: React.FC<ModalDemoProps> = ({ isOpen, onClose, selectedP
                 Leve a gestão da sua empresa para o próximo nível
               </h3>
               <p className="text-xs md:text-sm text-zinc-400 mt-1">
-                Sem necessidade de cartão de crédito. Instalação rápida e suporte imediato.
+                Acesso imediato, liberação instantânea e suporte dedicado.
               </p>
             </div>
 

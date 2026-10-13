@@ -9,9 +9,9 @@ interface HowItWorksProps {
 
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenTrial }) => {
   return (
-    <section id="como-funciona" className="py-10 md:py-28 bg-[#0A0C14] relative">
+    <section id="como-funciona" className="py-6 sm:py-8 md:py-12 bg-[#0A0C14] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4 mb-8 md:mb-12">
+        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
           <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight">
             Como funciona o <span className="text-[#00E676]">MechOS?</span>
           </h2>
@@ -42,7 +42,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenTrial }) => {
                   </div>
                 </div>
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-1">
-                  Crie sua conta em apenas 1 minuto sem burocracia. Não pedimos cartão de crédito nem fidelidade para você testar todas as funcionalidades.
+                  Crie sua conta em apenas 1 minuto sem burocracia nem fidelidade para você testar todas as funcionalidades na prática.
                 </p>
                 <div className="flex items-center gap-2 text-[11px] sm:text-xs text-emerald-400 font-semibold pt-1">
                   <CheckCircle2 className="w-4 h-4" /> Acesso imediato ao painel de controle
