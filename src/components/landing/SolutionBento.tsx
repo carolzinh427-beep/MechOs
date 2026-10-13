@@ -1,15 +1,4 @@
 import React from 'react';
-import {
-  Wrench,
-  Boxes,
-  Users,
-  DollarSign,
-  Car,
-  Calendar,
-  Receipt,
-  TrendingUp
-} from 'lucide-react';
-import { Card } from '../ui/Card';
 import SplitText from '../ui/SplitText';
 import AccordionGallery from '../ui/AccordionGallery';
 
@@ -47,49 +36,6 @@ export const SolutionBento: React.FC = () => {
     }
   ];
 
-  const modules = [
-    {
-      title: 'Ordens de Serviço',
-      desc: 'Abra acompanhe e finalize OS em poucos cliques com checklist digital',
-      icon: <Wrench className="w-5 h-5 text-[#00E676]" />
-    },
-    {
-      title: 'Estoque de Peças',
-      desc: 'Controle entradas saídas e alertas de reposição com baixa automática',
-      icon: <Boxes className="w-5 h-5 text-[#00E676]" />
-    },
-    {
-      title: 'CRM e Vendas',
-      desc: 'Organize clientes e envie orçamentos direto no WhatsApp',
-      icon: <Users className="w-5 h-5 text-[#00E676]" />
-    },
-    {
-      title: 'Financeiro e DRE',
-      desc: 'Acompanhe receitas despesas fluxo de caixa e lucro real',
-      icon: <DollarSign className="w-5 h-5 text-[#00E676]" />
-    },
-    {
-      title: 'Histórico por Placa',
-      desc: 'Consulte manutenções e peças trocadas digitando a placa',
-      icon: <Car className="w-5 h-5 text-[#00E676]" />
-    },
-    {
-      title: 'Agenda de Boxes',
-      desc: 'Distribua serviços entre mecânicos sem filas no pátio',
-      icon: <Calendar className="w-5 h-5 text-[#00E676]" />
-    },
-    {
-      title: 'Emissão Fiscal',
-      desc: 'Emita notas fiscais de serviço e peças com integração SEFAZ',
-      icon: <Receipt className="w-5 h-5 text-[#00E676]" />
-    },
-    {
-      title: 'Relatórios e Métricas',
-      desc: 'Tenha visão clara do ticket médio e faturamento mensal',
-      icon: <TrendingUp className="w-5 h-5 text-[#00E676]" />
-    }
-  ];
-
   return (
     <section id="recursos" className="py-8 sm:py-12 md:py-16 bg-white border-y border-zinc-200 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-8">
@@ -106,40 +52,19 @@ export const SolutionBento: React.FC = () => {
           </p>
         </div>
 
-        {/* Galeria AccordionGallery interativa do React Bits */}
+        {/* Galeria AccordionGallery 100% Horizontal do React Bits */}
         <div className="w-full text-left shadow-lg rounded-2xl overflow-hidden">
           <AccordionGallery
             items={solutionPanels}
             defaultIndex={0}
-            expandRatio={0.48}
+            expandRatio={0.5}
             height={440}
             accentColor="#00E676"
             overlayColor="#07080C"
             radius={18}
+            orientation="horizontal"
             trigger="hover"
           />
-        </div>
-
-        {/* Grid de Cards Menores e Fáceis de Rolar para visão completa */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 text-left pt-2">
-          {modules.map((mod, index) => (
-            <Card
-              key={index}
-              className="p-3 sm:p-4 bg-slate-50 border border-zinc-200 hover:border-[#00E676] rounded-xl sm:rounded-2xl transition-all shadow-sm space-y-2 group"
-            >
-              <div className="w-8 h-8 rounded-lg bg-[#00E676]/10 border border-[#00E676]/30 flex items-center justify-center text-[#00E676]">
-                {mod.icon}
-              </div>
-              <div>
-                <h3 className="text-xs sm:text-sm font-bold text-zinc-950 font-steel uppercase leading-snug">
-                  {mod.title}
-                </h3>
-                <p className="text-[11px] sm:text-xs text-zinc-600 mt-1 leading-relaxed">
-                  {mod.desc}
-                </p>
-              </div>
-            </Card>
-          ))}
         </div>
 
       </div>
