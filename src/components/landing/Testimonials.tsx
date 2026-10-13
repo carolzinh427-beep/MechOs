@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { User } from 'lucide-react';
-import { Card } from '../ui/Card';
 import FlyingPosters from '../ui/FlyingPosters';
 
 export const Testimonials: React.FC = () => {
@@ -46,7 +44,7 @@ export const Testimonials: React.FC = () => {
   const [posterItems, setPosterItems] = useState<string[]>([]);
 
   useEffect(() => {
-    // Generate crisp cards without emojis, symbols or periods
+    // Gera cards elegantes e nítidos sem emojis, símbolos ou pontos finais
     const generateCard = (t: typeof testimonials[0]): string => {
       if (typeof document === 'undefined') return '';
       const canvas = document.createElement('canvas');
@@ -71,28 +69,23 @@ export const Testimonials: React.FC = () => {
       // Green neon accent bar
       ctx.fillStyle = '#00E676';
       ctx.beginPath();
-      ctx.roundRect(40, 22, 520, 6, 3);
+      ctx.roundRect(48, 32, 504, 6, 3);
       ctx.fill();
-
-      // Clean Rating Tag (Sem símbolos de estrelas)
-      ctx.fillStyle = '#00E676';
-      ctx.font = 'bold 22px sans-serif';
-      ctx.fillText('AVALIAÇÃO 5 ESTRELAS', 48, 85);
 
       // Quote text wrapping (sem aspas e sem ponto final)
       ctx.fillStyle = '#F1F5F9';
-      ctx.font = '500 25px sans-serif';
+      ctx.font = '600 28px sans-serif';
       const cleanQuote = t.quote.replace(/[."'•★]/g, '');
       const words = cleanQuote.split(' ');
       let line = '';
-      let y = 160;
+      let y = 140;
       const maxW = 500;
       for (const w of words) {
         const testLine = line + w + ' ';
         if (ctx.measureText(testLine).width > maxW && line.length > 0) {
           ctx.fillText(line, 48, y);
           line = w + ' ';
-          y += 38;
+          y += 44;
         } else {
           line = testLine;
         }
@@ -103,14 +96,14 @@ export const Testimonials: React.FC = () => {
       ctx.strokeStyle = '#242838';
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(48, 450);
-      ctx.lineTo(552, 450);
+      ctx.moveTo(48, 440);
+      ctx.lineTo(552, 440);
       ctx.stroke();
 
       // Avatar circle
       ctx.fillStyle = '#181C28';
       ctx.beginPath();
-      ctx.arc(88, 510, 32, 0, Math.PI * 2);
+      ctx.arc(92, 506, 36, 0, Math.PI * 2);
       ctx.fill();
       ctx.strokeStyle = '#00E676';
       ctx.lineWidth = 3;
@@ -118,20 +111,20 @@ export const Testimonials: React.FC = () => {
 
       // Initial
       ctx.fillStyle = '#00E676';
-      ctx.font = 'bold 28px sans-serif';
+      ctx.font = 'bold 32px sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText(t.author.charAt(0), 88, 520);
+      ctx.fillText(t.author.charAt(0), 92, 517);
       ctx.textAlign = 'left';
 
       // Author name
       ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 24px sans-serif';
-      ctx.fillText(t.author, 136, 502);
+      ctx.font = 'bold 26px sans-serif';
+      ctx.fillText(t.author, 148, 498);
 
       // Company and Segment
       ctx.fillStyle = '#00E676';
-      ctx.font = '600 17px sans-serif';
-      ctx.fillText(`${t.company} - ${t.segment}`, 136, 532);
+      ctx.font = '600 18px sans-serif';
+      ctx.fillText(`${t.company} - ${t.segment}`, 148, 528);
 
       return canvas.toDataURL('image/png');
     };
@@ -144,73 +137,41 @@ export const Testimonials: React.FC = () => {
     <section className="py-8 sm:py-12 md:py-16 bg-[#07080C] relative overflow-hidden border-t border-[#242838]/60">
       <div className="max-w-6xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 text-center">
         
-        {/* Section Header Centralizado com subtítulo na margem do título */}
-        <div className="max-w-xl mx-auto space-y-2 mb-5 sm:mb-8 text-center">
+        {/* Section Header Centralizado sem subtítulo */}
+        <div className="max-w-xl mx-auto mb-6 sm:mb-10 text-center">
           <h2 className="text-xl xs:text-2xl sm:text-4xl font-black text-white tracking-tight font-steel uppercase text-center">
             O que dizem os gestores que usam o <span className="text-[#00E676]">MechOS</span>
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 text-center font-medium">
-            Veja como empresas de todo o Brasil transformaram sua gestão
-          </p>
         </div>
 
-        {/* 3D FlyingPosters Component */}
+        {/* 3D FlyingPosters Centralizado, aparecendo um de cada vez (columns=1), sem travar rolagem */}
         {posterItems.length > 0 && (
-          <div className="relative w-full h-[380px] xs:h-[420px] sm:h-[480px] md:h-[520px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#242838]/80 bg-[#090B12] shadow-2xl mb-5 sm:mb-8">
+          <div className="relative w-full max-w-lg mx-auto h-[380px] xs:h-[420px] sm:h-[470px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#242838]/80 bg-[#090B12] shadow-2xl">
             <FlyingPosters
               items={posterItems}
-              planeWidth={270}
-              planeHeight={270}
-              distortion={2}
+              planeWidth={320}
+              planeHeight={320}
+              distortion={1.8}
               scrollEase={0.02}
               cameraFov={45}
               cameraZ={21}
-              columns={2}
-              columnGap={35}
-              alternate={true}
-              pageScroll={0.7}
-              speed={10}
+              columns={1}
+              columnGap={0}
+              alternate={false}
+              pageScroll={0.8}
+              speed={14}
               drag={true}
-              wheel={true}
-              radius={24}
+              wheel={false}
+              radius={28}
               shading={0.15}
-              fade={0.1}
+              fade={0.15}
             />
 
             {/* Gradient overlays */}
-            <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[#090B12] to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#090B12] to-transparent pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-[#090B12] to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-[#090B12] to-transparent pointer-events-none" />
           </div>
         )}
-
-        {/* Compact Cards: Lado a lado no mobile e desktop sem emojis, símbolos ou pontos finais */}
-        <div className="grid grid-cols-1 xs:grid-cols-3 gap-2 sm:gap-4 text-left">
-          {testimonials.slice(0, 3).map((t, idx) => (
-            <Card
-              key={idx}
-              className="flex flex-col justify-between p-3 sm:p-4 bg-[#141722] border-[#242838] hover:border-[#00E676]/50 rounded-xl sm:rounded-2xl space-y-2 shadow-sm"
-            >
-              <div className="space-y-1">
-                <span className="text-[10px] font-bold text-[#00E676] uppercase tracking-wider block font-steel">
-                  Avaliação 5 Estrelas
-                </span>
-                <p className="text-[11px] sm:text-xs text-zinc-300 leading-snug">
-                  {t.quote}
-                </p>
-              </div>
-
-              <div className="pt-2 border-t border-[#242838] flex items-center gap-2">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#0F111A] border border-[#242838] flex items-center justify-center text-[#00E676] shrink-0 text-xs font-bold">
-                  {t.author.charAt(0)}
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] sm:text-xs font-bold text-white truncate">{t.author}</p>
-                  <p className="text-[9px] text-[#00E676] font-semibold truncate">{t.segment}</p>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
 
       </div>
     </section>
