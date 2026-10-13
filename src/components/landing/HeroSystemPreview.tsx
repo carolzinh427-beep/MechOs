@@ -4,7 +4,8 @@ import {
   Wrench,
   Car,
   Boxes,
-  ArrowRight
+  ArrowRight,
+  MessageCircle
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 
@@ -14,26 +15,54 @@ interface HeroSystemPreviewProps {
 
 export const HeroSystemPreview: React.FC<HeroSystemPreviewProps> = ({ onOpenTrial }) => {
   return (
-    <section className="py-6 sm:py-10 bg-[#07080C] relative overflow-hidden border-b border-[#242838]/60">
+    <section className="py-8 sm:py-12 bg-[#07080C] relative overflow-hidden border-b border-[#242838]/60">
       {/* Background glow behind preview */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-[#00E676]/10 blur-[130px] pointer-events-none rounded-full z-0" />
 
-      <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-1 sm:space-y-2 mb-4 sm:mb-7">
+        {/* Section Header com o restante das informações da Hero */}
+        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3.5 mb-6 sm:mb-9">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00E676]/10 text-[#00E676] text-[10px] sm:text-xs font-bold border border-[#00E676]/30 uppercase tracking-wider font-steel">
-            Painel Operacional em Tempo Real
+            Painel Geral & Controle Operacional
           </span>
-          <h2 className="text-xl sm:text-3xl font-black text-white tracking-tight font-steel uppercase">
-            A interface que coloca sua empresa no <span className="text-[#00E676]">piloto automático</span>
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight font-steel uppercase">
+            A solução completa para sua empresa <span className="text-[#00E676]">crescer com organização</span>
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400">
-            Acesso rápido às ordens de serviço, fluxo de veículos, estoque e faturamento direto pelo celular ou computador.
+          <p className="text-xs sm:text-base text-zinc-300 font-medium max-w-2xl mx-auto leading-relaxed">
+            OS, estoque, financeiro, CRM, faturamento, clientes, veículos e Inteligência Artificial reunidos em um único sistema de alta performance.
           </p>
+
+          {/* Botões de Ação CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-2">
+            <Button
+              variant="electric"
+              size="md"
+              onClick={onOpenTrial}
+              icon={<ArrowRight className="w-4 h-4" />}
+              className="w-full sm:w-auto text-xs sm:text-sm py-2.5 sm:py-3 px-5 sm:px-7"
+            >
+              Começar teste agora
+            </Button>
+            <a
+              href="https://wa.me/5561985890417?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20o%20MechOS."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button
+                variant="outline"
+                size="md"
+                icon={<MessageCircle className="w-4 h-4 text-[#25D366]" />}
+                className="w-full text-xs sm:text-sm py-2.5 sm:py-3 px-4 sm:px-6"
+              >
+                Tirar dúvidas no WhatsApp
+              </Button>
+            </a>
+          </div>
         </div>
 
-        {/* Mockup Container */}
+        {/* Mockup do Sistema */}
         <div className="relative max-w-5xl mx-auto">
           {/* Decorative Glow Ring */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00E676]/30 via-emerald-500/15 to-[#00E676]/30 rounded-2xl md:rounded-3xl blur-md opacity-60 transition duration-1000" />

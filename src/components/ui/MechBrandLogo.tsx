@@ -9,17 +9,20 @@ export const MechBrandLogo: React.FC<MechBrandLogoProps> = ({
   className = '',
   size = 'md'
 }) => {
-  // Height and scale variations
-  const sizeMap = {
-    sm: { height: 26, fontSize: '18px' },
-    md: { height: 32, fontSize: '22px' },
-    lg: { height: 44, fontSize: '30px' }
+  const hasExplicitHeight = /\bh-/.test(className);
+  const sizeMap: Record<string, { height: number }> = {
+    sm: { height: 26 },
+    md: { height: 34 },
+    lg: { height: 52 }
   };
 
-  const { height, fontSize } = sizeMap[size];
+  const currentHeight = sizeMap[size]?.height || 34;
 
   return (
-    <div className={`inline-flex items-center select-none group ${className}`} style={{ height }}>
+    <div
+      className={`inline-flex items-center select-none group ${className}`}
+      style={hasExplicitHeight ? undefined : { height: currentHeight }}
+    >
       <svg
         viewBox="0 0 280 80"
         fill="none"

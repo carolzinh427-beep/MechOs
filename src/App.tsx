@@ -31,17 +31,17 @@ export function App() {
 
       {/* Main Landing Sections */}
       <main>
-        {/* 1. Hero Compacto & Impactante (Sem animação de fundo pesada, sem corte de título) */}
+        {/* 1. Hero: Logo MechOS centralizado acima da frase (Fundo Preto) */}
         <Hero onOpenTrial={handleGoToSystem} />
 
-        {/* 2. Seção do Mockup da Dashboard do Sistema (Inserida logo após a Hero) */}
+        {/* 2. Dores e Problemas - "Sua empresa ainda depende..." (Diretamente após o Hero, Fundo Branco) */}
+        <ProblemSection />
+
+        {/* 3. Seção à parte: Resto da apresentação, CTAs e Mockup Interativo (Fundo Preto) */}
         <HeroSystemPreview onOpenTrial={handleGoToSystem} />
 
-        {/* 3. Ticker dos Segmentos (Fundo Branco) */}
+        {/* 4. Ticker dos Segmentos Atendidos (Integrado em fundo dark) */}
         <SegmentTicker />
-
-        {/* 4. Dores e Problemas (Fundo Preto) */}
-        <ProblemSection />
 
         {/* 5. Solução Bento Grid (Fundo Branco) */}
         <SolutionBento />
