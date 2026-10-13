@@ -21,11 +21,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTrial }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 glass-header border-b border-[#242838]/60 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-1.5">
+      <div className="max-w-7xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-2">
         
-        {/* Brand Logo Oficial MechOS do Anexo */}
+        {/* Brand Logo Oficial MechOS */}
         <a href="#" className="flex items-center group shrink-0" title="MechOS Início">
-          <MechBrandLogo size="md" className="h-7 sm:h-8" />
+          <MechBrandLogo className="h-8 sm:h-9 w-auto" />
         </a>
 
         {/* Desktop Central PillNav */}

@@ -3,31 +3,33 @@ import { Check, X } from 'lucide-react';
 
 export const Comparison: React.FC = () => {
   const comparisonItems = [
-    { feature: 'Agilidade na emissão de OS em menos de 3 min', manual: false, mechos: true },
+    { feature: 'Agilidade na emissão de OS em menos de 3 minutos', manual: false, mechos: true },
     { feature: 'Histórico completo por placa do veículo', manual: false, mechos: true },
     { feature: 'Envio de orçamento profissional em PDF no WhatsApp', manual: false, mechos: true },
     { feature: 'Controle de estoque com alertas automáticos', manual: false, mechos: true },
     { feature: 'Inteligência Artificial de apoio ao gestor', manual: false, mechos: true },
-    { feature: 'Painel financeiro, fluxo de caixa e DRE em tempo real', manual: false, mechos: true }
+    { feature: 'Painel financeiro fluxo de caixa e DRE em tempo real', manual: false, mechos: true }
   ];
 
   return (
-    <section className="py-6 sm:py-8 md:py-12 bg-white border-y border-zinc-200 relative">
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
-          <h2 className="text-2xl sm:text-5xl font-black text-zinc-950 tracking-tight font-steel uppercase">
-            Por que migrar do papel para o <span className="text-[#00E676]">MechOS?</span>
+    <section className="py-8 sm:py-12 md:py-16 bg-white border-y border-zinc-200 relative">
+      <div className="max-w-5xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 text-center">
+        
+        {/* Header Centralizado com subtítulo na margem do título */}
+        <div className="max-w-xl mx-auto space-y-2 mb-6 sm:mb-8 text-center">
+          <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-black text-zinc-950 tracking-tight font-steel uppercase text-center">
+            Por que migrar do papel para o <span className="text-[#00E676]">MechOS</span>
           </h2>
-          <p className="text-xs sm:text-base text-zinc-600 font-medium">
-            Compare a gestão tradicional em papel e planilhas com a eficiência e velocidade da nossa plataforma.
+          <p className="text-xs sm:text-sm text-zinc-600 font-medium text-center">
+            Compare a gestão tradicional com a eficiência e velocidade da nossa plataforma
           </p>
         </div>
 
-        {/* Comparison Table / Box */}
-        <div className="max-w-4xl mx-auto bg-slate-50 border border-zinc-200/90 rounded-2xl sm:rounded-3xl p-3 sm:p-7 overflow-hidden shadow-lg">
-          <div className="grid grid-cols-12 pb-3.5 border-b border-zinc-200 text-xs font-bold uppercase tracking-wider font-steel">
+        {/* Comparison Table */}
+        <div className="max-w-4xl mx-auto bg-slate-50 border border-zinc-200/90 rounded-2xl sm:rounded-3xl p-3 sm:p-6 overflow-hidden shadow-lg text-left">
+          <div className="grid grid-cols-12 pb-3 border-b border-zinc-200 text-xs font-bold uppercase tracking-wider font-steel">
             <div className="col-span-6 text-zinc-500">Funcionalidade</div>
-            <div className="col-span-3 text-center text-rose-500">Manual / Papel</div>
+            <div className="col-span-3 text-center text-rose-500">Manual Papel</div>
             <div className="col-span-3 text-center text-[#00E676]">MechOS</div>
           </div>
 
@@ -57,7 +59,10 @@ export const Comparison: React.FC = () => {
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
 };
+
+export default Comparison;

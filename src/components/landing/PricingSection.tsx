@@ -15,7 +15,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
       name: 'Essencial',
       price: '197',
       period: '/mês',
-      description: 'Ideal para oficinas menores e autônomos em fase de estruturação.',
+      description: 'Ideal para oficinas menores e autônomos em fase de estruturação',
       trialBadge: '3 Dias Grátis',
       features: [
         'Até 2 usuários',
@@ -32,13 +32,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
       name: 'Profissional',
       price: '297',
       period: '/mês',
-      description: 'Perfeito para centros automotivos em crescimento acelerado.',
+      description: 'Perfeito para centros automotivos em crescimento acelerado',
       trialBadge: '3 Dias Grátis',
       features: [
         'Até 5 usuários',
-        'Tudo do Essencial +',
+        'Tudo do Essencial',
         'CRM de Vendas Kanban',
-        'Assistente IA MechOS (Consultas)',
+        'Assistente IA MechOS',
         'Alertas de Estoque Mínimo',
         'Relatórios de Faturamento Avançados',
         'Envio de Orçamentos via WhatsApp',
@@ -51,14 +51,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
       name: 'Premium',
       price: '397',
       period: '/mês',
-      description: 'Para grandes empresas automotivas e operações multi-técnicos.',
+      description: 'Para grandes empresas automotivas e operações multi técnicos',
       trialBadge: '3 Dias Grátis',
       features: [
         'Usuários Ilimitados',
-        'Tudo do Profissional +',
-        'Inteligência Artificial Total + Insights DRE',
+        'Tudo do Profissional',
+        'Inteligência Artificial Total e Insights DRE',
         'Emissão de NF-e e NFS-e Integrada',
-        'Multilojas / Gestão Integrada',
+        'Multilojas e Gestão Integrada',
         'Histórico Completo por Placa Ilimitado',
         'Gerente de Conta Dedicado'
       ],
@@ -69,26 +69,28 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
   ];
 
   return (
-    <section id="planos" className="py-6 sm:py-8 md:py-12 bg-[#07080C] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-2.5 mb-5 sm:mb-8">
-          <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight font-steel uppercase">
+    <section id="planos" className="py-8 sm:py-12 md:py-16 bg-[#07080C] relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 text-center">
+        
+        {/* Header Centralizado com subtítulo na margem do título */}
+        <div className="max-w-xl mx-auto space-y-2 mb-6 sm:mb-8 text-center">
+          <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight font-steel uppercase text-center">
             Comece com o plano certo para <span className="text-[#00E676]">sua empresa</span>
           </h2>
-          <p className="text-xs sm:text-base text-zinc-400 font-medium">
-            Todos os planos possuem <strong className="text-[#00E676]">3 dias de teste grátis</strong> com acesso imediato.
+          <p className="text-xs sm:text-base text-zinc-400 font-medium text-center">
+            Todos os planos possuem <strong className="text-[#00E676]">3 dias de teste grátis</strong> com acesso imediato
           </p>
         </div>
 
-        {/* Indicador de rolagem horizontal para mobile com bom espaçamento */}
+        {/* Indicador de rolagem horizontal para mobile */}
         <div className="flex lg:hidden items-center justify-center gap-1.5 text-[10px] font-bold text-[#00E676] mb-3 animate-pulse">
-          <span>← Deslize para o lado para ver os planos →</span>
+          <span>Deslize para ver os planos</span>
         </div>
 
-        {/* Pricing Cards - Side-by-Side Horizontal Scroll no Mobile / Grid 3 Colunas no Desktop */}
+        {/* Pricing Cards */}
         <div
           ref={containerRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-6 pb-3 sm:pb-5 px-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 items-stretch [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pt-1"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-6 pb-3 sm:pb-5 px-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 items-stretch [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pt-1 text-left"
         >
           {plans.map((p, idx) => (
             <div key={idx} className="shrink-0 snap-center w-[85vw] max-w-[310px] sm:w-[340px] lg:w-auto flex">
@@ -103,24 +105,22 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
                 <div className="space-y-3.5 z-10">
                   {p.popular && (
                     <div className="flex justify-start">
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#00E676] text-zinc-950 font-black text-[9px] sm:text-[10px] tracking-wider uppercase shadow-md">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#00E676] text-zinc-950 font-black text-[9px] sm:text-[10px] tracking-wider uppercase shadow-md font-steel">
                         {p.badgeText}
                       </span>
                     </div>
                   )}
 
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h3 className="text-base sm:text-2xl font-black text-white">{p.name}</h3>
-                      <p className="text-[11px] sm:text-xs text-zinc-400 mt-0.5 leading-relaxed">{p.description}</p>
-                    </div>
+                  <div>
+                    <h3 className="text-base sm:text-2xl font-black text-white font-steel">{p.name}</h3>
+                    <p className="text-[11px] sm:text-xs text-zinc-400 mt-0.5 leading-relaxed">{p.description}</p>
                   </div>
 
-                  {/* Price Display & Trial Note */}
+                  {/* Price Display */}
                   <div className="py-2 border-y border-[#242838] space-y-1">
                     <div className="flex items-baseline gap-1">
                       <span className="text-xs font-bold text-zinc-400">R$</span>
-                      <span className="text-2xl sm:text-4xl font-black text-white">{p.price}</span>
+                      <span className="text-2xl sm:text-4xl font-black text-white font-steel">{p.price}</span>
                       <span className="text-xs text-zinc-400 font-medium">{p.period}</span>
                     </div>
                     <div className="inline-block text-[9px] sm:text-[10px] font-bold text-[#00E676] bg-[#00E676]/10 px-2 py-0.5 rounded border border-[#00E676]/30">
@@ -129,25 +129,23 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
                   </div>
 
                   {/* Features List */}
-                  <ul className="space-y-1.5 text-[11px] sm:text-xs">
+                  <ul className="space-y-2">
                     {p.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-center gap-2 text-zinc-300">
-                        <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#00E676]/10 text-[#00E676] flex items-center justify-center shrink-0">
-                          <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                        </div>
-                        <span className="truncate">{feat}</span>
+                      <li key={fIdx} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300">
+                        <Check className="w-4 h-4 text-[#00E676] shrink-0 mt-0.5" />
+                        <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-4 sm:pt-6 z-10">
+                <div className="pt-4 mt-4 border-t border-[#242838] z-10">
                   <Button
                     variant={p.popular ? 'electric' : 'outline'}
                     size="md"
                     onClick={onOpenTrial}
-                    icon={<ArrowRight className="w-4 h-4" />}
                     className="w-full text-xs sm:text-sm"
+                    icon={<ArrowRight className="w-4 h-4" />}
                   >
                     {p.ctaText}
                   </Button>
@@ -156,8 +154,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenTrial }) =
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
 };
 
+export default PricingSection;

@@ -1,42 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import { Quote, Star, User, Sparkles, MoveDown } from 'lucide-react';
+import { User } from 'lucide-react';
 import { Card } from '../ui/Card';
 import FlyingPosters from '../ui/FlyingPosters';
 
 export const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      quote: 'Reduzimos o tempo de recepção de OS pela metade com orçamentos direto no WhatsApp.',
+      quote: 'Reduzimos o tempo de recepção de OS pela metade com orçamentos direto no WhatsApp',
       author: 'Carlos Alberto',
       company: 'Auto Center Performance',
       segment: 'Centro Automotivo'
     },
     {
-      quote: 'Resgatamos mais de 40 clientes sumidos no 1º mês com os alertas de revisão do sistema.',
+      quote: 'Resgatamos mais de 40 clientes sumidos no primeiro mês com os alertas de revisão do sistema',
       author: 'Marcelo Mendonça',
-      company: 'Mendonça Motos & Peças',
+      company: 'Mendonça Motos e Peças',
       segment: 'Oficina de Motos'
     },
     {
-      quote: 'Organização total de estoque e margem de lucro real de cada serviço com IA.',
+      quote: 'Organização total de estoque e margem de lucro real de cada serviço com IA',
       author: 'Renata Silveira',
-      company: 'Silveira Injeção & Freios',
+      company: 'Silveira Injeção e Freios',
       segment: 'Oficina Mecânica'
     },
     {
-      quote: 'Histórico por placa e controle de comissões aumentaram nosso faturamento em 32%.',
+      quote: 'Histórico por placa e controle de comissões aumentaram nosso faturamento em 32%',
       author: 'Thiago Farias',
-      company: 'Apex Pneus & Suspensão',
+      company: 'Apex Pneus e Suspensão',
       segment: 'Centro Automotivo'
     },
     {
-      quote: 'Agendamento rápido e aprovação online encantaram os nossos clientes no primeiro mês.',
+      quote: 'Agendamento rápido e aprovação online encantaram os nossos clientes no primeiro mês',
       author: 'Juliana Castro',
       company: 'Box 77 Detailing',
       segment: 'Estética Automotiva'
     },
     {
-      quote: 'O DRE em tempo real e a emissão de notas fiscais facilitaram todo o nosso financeiro.',
+      quote: 'O DRE em tempo real e a emissão de notas fiscais facilitaram todo o nosso financeiro',
       author: 'Roberto Nogueira',
       company: 'Autoelétrica Nogueira',
       segment: 'Autoelétrica'
@@ -46,7 +46,7 @@ export const Testimonials: React.FC = () => {
   const [posterItems, setPosterItems] = useState<string[]>([]);
 
   useEffect(() => {
-    // Generate crisp 2D canvas card textures for WebGL FlyingPosters
+    // Generate crisp cards without emojis, symbols or periods
     const generateCard = (t: typeof testimonials[0]): string => {
       if (typeof document === 'undefined') return '';
       const canvas = document.createElement('canvas');
@@ -55,7 +55,7 @@ export const Testimonials: React.FC = () => {
       const ctx = canvas.getContext('2d');
       if (!ctx) return '';
 
-      // Dark metallic card background
+      // Dark card background
       ctx.fillStyle = '#0F121C';
       ctx.beginPath();
       ctx.roundRect(16, 16, 568, 568, 36);
@@ -68,36 +68,31 @@ export const Testimonials: React.FC = () => {
       ctx.roundRect(16, 16, 568, 568, 36);
       ctx.stroke();
 
-      // Top green neon stripe
+      // Green neon accent bar
       ctx.fillStyle = '#00E676';
       ctx.beginPath();
       ctx.roundRect(40, 22, 520, 6, 3);
       ctx.fill();
 
-      // 5 Rating Stars
+      // Clean Rating Tag (Sem símbolos de estrelas)
       ctx.fillStyle = '#00E676';
-      ctx.font = 'bold 30px sans-serif';
-      ctx.fillText('★ ★ ★ ★ ★', 48, 88);
+      ctx.font = 'bold 22px sans-serif';
+      ctx.fillText('AVALIAÇÃO 5 ESTRELAS', 48, 85);
 
-      // Quote mark watermark
-      ctx.fillStyle = 'rgba(0, 230, 118, 0.2)';
-      ctx.font = 'bold 96px Georgia, serif';
-      ctx.fillText('“', 42, 170);
-
-      // Quote text wrapping
+      // Quote text wrapping (sem aspas e sem ponto final)
       ctx.fillStyle = '#F1F5F9';
-      ctx.font = 'italic 500 26px sans-serif';
-      const cleanQuote = `"${t.quote}"`;
+      ctx.font = '500 25px sans-serif';
+      const cleanQuote = t.quote.replace(/[."'•★]/g, '');
       const words = cleanQuote.split(' ');
       let line = '';
-      let y = 200;
+      let y = 160;
       const maxW = 500;
       for (const w of words) {
         const testLine = line + w + ' ';
         if (ctx.measureText(testLine).width > maxW && line.length > 0) {
           ctx.fillText(line, 48, y);
           line = w + ' ';
-          y += 40;
+          y += 38;
         } else {
           line = testLine;
         }
@@ -136,7 +131,7 @@ export const Testimonials: React.FC = () => {
       // Company and Segment
       ctx.fillStyle = '#00E676';
       ctx.font = '600 17px sans-serif';
-      ctx.fillText(`${t.company} • ${t.segment}`, 136, 532);
+      ctx.fillText(`${t.company} - ${t.segment}`, 136, 532);
 
       return canvas.toDataURL('image/png');
     };
@@ -147,44 +142,34 @@ export const Testimonials: React.FC = () => {
 
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-[#07080C] relative overflow-hidden border-t border-[#242838]/60">
-      <div className="max-w-7xl mx-auto px-2.5 xs:px-3 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 text-center">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00E676]/10 text-[#00E676] text-[10px] sm:text-xs font-bold border border-[#00E676]/30 uppercase tracking-wider font-steel">
-            <Sparkles className="w-3 h-3 text-[#00E676]" />
-            Experiência Real dos Clientes
-          </span>
-
-          <h2 className="text-xl sm:text-4xl md:text-5xl font-black text-white tracking-tight font-steel uppercase">
+        {/* Section Header Centralizado com subtítulo na margem do título */}
+        <div className="max-w-xl mx-auto space-y-2 mb-5 sm:mb-8 text-center">
+          <h2 className="text-xl xs:text-2xl sm:text-4xl font-black text-white tracking-tight font-steel uppercase text-center">
             O que dizem os gestores que usam o <span className="text-[#00E676]">MechOS</span>
           </h2>
-          <p className="text-[11px] sm:text-base text-zinc-400">
-            Veja como empresas de todo o Brasil transformaram sua gestão e aumentaram seus lucros.
+          <p className="text-xs sm:text-sm text-zinc-400 text-center font-medium">
+            Veja como empresas de todo o Brasil transformaram sua gestão
           </p>
-
-          <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-wider pt-1">
-            <MoveDown className="w-3 h-3 text-[#00E676] animate-bounce" />
-            <span>Role a página para ver os depoimentos flutuando em 3D</span>
-          </div>
         </div>
 
-        {/* 3D FlyingPosters Component from React Bits */}
+        {/* 3D FlyingPosters Component */}
         {posterItems.length > 0 && (
-          <div className="relative w-full h-[400px] xs:h-[440px] sm:h-[500px] md:h-[560px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#242838]/80 bg-[#090B12] shadow-2xl mb-6 sm:mb-8">
+          <div className="relative w-full h-[380px] xs:h-[420px] sm:h-[480px] md:h-[520px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#242838]/80 bg-[#090B12] shadow-2xl mb-5 sm:mb-8">
             <FlyingPosters
               items={posterItems}
-              planeWidth={280}
-              planeHeight={280}
-              distortion={2.5}
-              scrollEase={0.015}
+              planeWidth={270}
+              planeHeight={270}
+              distortion={2}
+              scrollEase={0.02}
               cameraFov={45}
               cameraZ={21}
               columns={2}
               columnGap={35}
               alternate={true}
-              pageScroll={0.85}
-              speed={12}
+              pageScroll={0.7}
+              speed={10}
               drag={true}
               wheel={true}
               radius={24}
@@ -192,39 +177,35 @@ export const Testimonials: React.FC = () => {
               fade={0.1}
             />
 
-            {/* Gradient overlays on top and bottom for smooth blending */}
-            <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-[#090B12] to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-[#090B12] to-transparent pointer-events-none" />
+            {/* Gradient overlays */}
+            <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[#090B12] to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#090B12] to-transparent pointer-events-none" />
           </div>
         )}
 
-        {/* Compact Cards: Lado a lado no mobile e desktop para leitura rápida */}
-        <div className="grid grid-cols-3 gap-1.5 xs:gap-2 sm:gap-4 md:gap-6">
+        {/* Compact Cards: Lado a lado no mobile e desktop sem emojis, símbolos ou pontos finais */}
+        <div className="grid grid-cols-1 xs:grid-cols-3 gap-2 sm:gap-4 text-left">
           {testimonials.slice(0, 3).map((t, idx) => (
             <Card
               key={idx}
-              className="flex flex-col justify-between p-2 xs:p-2.5 sm:p-5 md:p-6 bg-[#141722] border-[#242838] hover:border-[#00E676]/50 rounded-xl sm:rounded-2xl space-y-2 sm:space-y-4 shadow-sm"
+              className="flex flex-col justify-between p-3 sm:p-4 bg-[#141722] border-[#242838] hover:border-[#00E676]/50 rounded-xl sm:rounded-2xl space-y-2 shadow-sm"
             >
-              <div className="space-y-1.5 sm:space-y-3">
-                <div className="flex items-center gap-0.5 text-[#00E676]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 fill-current" />
-                  ))}
-                </div>
-                <Quote className="w-3.5 h-3.5 sm:w-7 sm:h-7 text-[#00E676]/30" />
-                <p className="text-[10px] xs:text-[11px] sm:text-sm text-zinc-300 italic leading-snug sm:leading-relaxed">
-                  "{t.quote}"
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-[#00E676] uppercase tracking-wider block font-steel">
+                  Avaliação 5 Estrelas
+                </span>
+                <p className="text-[11px] sm:text-xs text-zinc-300 leading-snug">
+                  {t.quote}
                 </p>
               </div>
 
-              <div className="pt-1.5 sm:pt-3 border-t border-[#242838] flex items-center gap-1.5 sm:gap-2.5">
-                <div className="w-5 h-5 xs:w-6 xs:h-6 sm:w-9 sm:h-9 rounded-full bg-[#0F111A] border border-[#242838] flex items-center justify-center text-[#00E676] shrink-0">
-                  <User className="w-2.5 h-2.5 sm:w-4 sm:h-4" />
+              <div className="pt-2 border-t border-[#242838] flex items-center gap-2">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#0F111A] border border-[#242838] flex items-center justify-center text-[#00E676] shrink-0 text-xs font-bold">
+                  {t.author.charAt(0)}
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[9px] xs:text-[10px] sm:text-xs font-bold text-white truncate">{t.author}</p>
-                  <p className="text-[8px] sm:text-[10px] text-zinc-400 truncate hidden xs:block">{t.company}</p>
-                  <p className="text-[8px] sm:text-[10px] text-[#00E676] font-semibold truncate">{t.segment}</p>
+                  <p className="text-[10px] sm:text-xs font-bold text-white truncate">{t.author}</p>
+                  <p className="text-[9px] text-[#00E676] font-semibold truncate">{t.segment}</p>
                 </div>
               </div>
             </Card>

@@ -13,14 +13,14 @@ export const DashboardSection: React.FC = () => {
   const [period, setPeriod] = useState<'hoje' | 'semana' | 'mes'>('mes');
 
   return (
-    <section id="produto" className="py-6 sm:py-8 md:py-12 bg-white border-y border-zinc-200 relative">
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-1.5 sm:space-y-3 mb-4 sm:mb-6 md:mb-8">
-          <h2 className="text-2xl sm:text-5xl font-black text-zinc-950 tracking-tight font-steel uppercase">
+    <section id="produto" className="py-8 sm:py-12 md:py-16 bg-white border-y border-zinc-200 relative">
+      <div className="max-w-6xl mx-auto px-[1.5cm] sm:px-6 lg:px-8 text-center">
+        <div className="max-w-xl mx-auto space-y-2 mb-6 sm:mb-8 text-center">
+          <h2 className="text-xl xs:text-2xl sm:text-4xl font-black text-zinc-950 tracking-tight font-steel uppercase text-center">
             Veja sua operação de um jeito <span className="text-[#00E676]">completamente diferente</span>
           </h2>
-          <p className="text-xs sm:text-base text-zinc-600 font-medium">
-            Interface limpa e ultra-rápida com indicadores, gráficos e alertas automáticos para você tomar as decisões certas.
+          <p className="text-xs sm:text-sm text-zinc-600 font-medium text-center">
+            Interface limpa e rápida com indicadores gráficos e alertas automáticos para você tomar as decisões certas
           </p>
         </div>
 

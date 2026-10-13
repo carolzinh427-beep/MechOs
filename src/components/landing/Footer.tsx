@@ -1,18 +1,18 @@
 import React from 'react';
-import { Wrench, ShieldCheck, Mail, Lock } from 'lucide-react';
+import { ShieldCheck, Mail, Lock } from 'lucide-react';
 import CircularText from '../ui/CircularText';
 import { MechBrandLogo } from '../ui/MechBrandLogo';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#05060A] border-t border-[#242838] py-5 sm:py-7 text-zinc-400 text-xs relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+    <footer className="bg-[#05060A] border-t border-[#242838] py-6 sm:py-8 text-zinc-400 text-xs relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-[1.5cm] sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6 border-b border-[#242838]/60">
           
           {/* Brand & Contact */}
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <a href="#" className="flex items-center group shrink-0" title="MechOS Início">
-              <MechBrandLogo size="md" className="h-7 sm:h-8" />
+              <MechBrandLogo className="h-8 sm:h-9 w-auto" />
             </a>
 
             <div className="h-4 w-[1px] bg-zinc-800 hidden sm:block" />
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
             </a>
           </div>
 
-          {/* React Bits CircularText animation */}
+          {/* CircularText animation */}
           <div className="shrink-0 my-2 md:my-0 scale-90 sm:scale-100">
             <CircularText
               text="MECHOS GESTÃO AUTOMOTIVA "
@@ -60,12 +60,12 @@ export const Footer: React.FC = () => {
 
         {/* Bottom LGPD and Copyright bar */}
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-zinc-500 text-center sm:text-left">
-          <p>© 2026 MechOS SaaS Automotivo. Todos os direitos reservados.</p>
+          <p>© 2026 MechOS SaaS Automotivo Todos os direitos reservados</p>
           
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1 text-zinc-400">
               <Lock className="w-3 h-3 text-[#00E676]" /> 
-              <span>Conformidade total com a <strong className="text-white">LGPD</strong> (Lei Geral de Proteção de Dados)</span>
+              <span>Conformidade com a <strong className="text-white">LGPD</strong></span>
             </span>
             <span className="flex items-center gap-1 text-zinc-500 hidden md:inline-flex">
               <ShieldCheck className="w-3.5 h-3.5 text-[#00E676]" /> Dados encriptados
@@ -76,3 +76,5 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+
+export default Footer;
